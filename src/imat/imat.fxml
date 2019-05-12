@@ -18,7 +18,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #94ce94;">
                <children>
-                  <TextField layoutX="232.0" layoutY="25.0" prefHeight="47.0" prefWidth="355.0" promptText="Sök:" style="-fx-border-color: black;" AnchorPane.topAnchor="25.0">
+                  <TextField layoutX="211.0" layoutY="25.0" prefHeight="47.0" prefWidth="428.0" promptText="Sök:" style="-fx-border-color: black;" AnchorPane.topAnchor="25.0">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -66,7 +66,7 @@
                     <items>
                       <AnchorPane prefHeight="324.0" prefWidth="199.0">
                            <children>
-                              <VBox prefHeight="695.0" prefWidth="206.0" style="-fx-background-color: #e4ffe4;" />
+                              <VBox prefHeight="695.0" prefWidth="210.0" style="-fx-background-color: #e4ffe4;" />
                            </children></AnchorPane>
                         <SplitPane dividerPositions="0.7634615384615384" prefHeight="695.0" prefWidth="415.0">
                           <items>
@@ -91,7 +91,7 @@
                                     </Button>
                                     <ScrollPane layoutY="42.0" prefHeight="571.0" prefWidth="249.0" style="-fx-background-color: #e4ffe4;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
                                        <content>
-                                          <FlowPane prefHeight="611.0" prefWidth="246.0" />
+                                          <FlowPane prefHeight="644.0" prefWidth="234.0" />
                                        </content>
                                     </ScrollPane>
                                     <Label alignment="CENTER" prefHeight="41.0" prefWidth="249.0" text="Varukorg">
