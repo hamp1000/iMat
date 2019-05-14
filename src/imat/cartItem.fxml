@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="45" prefWidth="235" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.CartItem">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="158.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/error.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="65.0" layoutY="6.0" prefHeight="34.0" prefWidth="102.0" text="Exempel">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="187.0" layoutY="7.0" text="X" textAlignment="CENTER">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="163.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/back.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="206.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@resources/back.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
