@@ -13,17 +13,20 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="800.0" maxWidth="1280.0" minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+
    <children>
       <SplitPane dividerPositions="0.12531328320802004" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane maxHeight="97.0" maxWidth="1278.0" minHeight="97.0" minWidth="1278.0" prefHeight="97.0" prefWidth="1278.0" style="-fx-background-color: #94ce94;">
                <children>
                   <TextField layoutX="211.0" layoutY="25.0" prefHeight="47.0" prefWidth="428.0" promptText="Sök:" style="-fx-border-color: black;" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="25.0">
+
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </TextField>
                   <ImageView fitHeight="58.0" fitWidth="135.0" layoutX="25.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="22.0">
+
                      <image>
                         <Image url="@resources/Logo-iMat.png" />
                      </image>
@@ -67,6 +70,7 @@
                       <AnchorPane maxWidth="229.0" minWidth="229.0" prefHeight="324.0" prefWidth="199.0">
                            <children>
                               <VBox prefHeight="693.0" prefWidth="229.0" style="-fx-background-color: #e4ffe4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+
                            </children></AnchorPane>
                         <SplitPane dividerPositions="0.7634615384615384" maxHeight="693.0" maxWidth="1041.0" minHeight="693.0" minWidth="1041.0" prefHeight="695.0" prefWidth="1037.0">
                           <items>
@@ -82,6 +86,7 @@
                             <AnchorPane maxHeight="693.0" maxWidth="243.0" minHeight="693.0" minWidth="243.0" prefHeight="693.0" prefWidth="243.0">
                                  <children>
                                     <Button alignment="CENTER" layoutX="9.0" layoutY="629.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="230.0" style="-fx-background-color: #43ef43;" text="Till kassa" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="625.0">
+
                                        <font>
                                           <Font name="System Bold" size="20.0" />
                                        </font>
@@ -95,7 +100,7 @@
                                     </Button>
                                     <ScrollPane layoutY="42.0" prefHeight="571.0" prefWidth="249.0" style="-fx-background-color: #e4ffe4;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
                                        <content>
-                                          <FlowPane prefHeight="569.0" prefWidth="241.0" />
+                                          <FlowPane fx:id="cartFlowPane" prefHeight="569.0" prefWidth="241.0" />
                                        </content>
                                     </ScrollPane>
                                     <Label alignment="CENTER" prefHeight="41.0" prefWidth="249.0" text="Varukorg" AnchorPane.bottomAnchor="652.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
