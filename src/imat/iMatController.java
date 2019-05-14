@@ -6,42 +6,48 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-
+import javafx.scene.layout.VBox;
+import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ProductCategory;
 import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class iMatController implements Initializable {
 
-   /* public iMatController() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("imat.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
+    iMatBackEnd backEnd = new iMatBackEnd();
 
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
-    }*/
     @FXML
     TextField searchBar;
 
     @FXML
     Button checkOutButton;
 
+    @FXML
+    VBox categoryListBox;
+
+
+    List<CategoryButtonController> categories;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
 
+        categories = new ArrayList<CategoryButtonController>();
+/*
+        for ( Product c: backEnd.getCategories()) {
+            categories.add(new CategoryButtonController(c.getName()));
+            CategoryButtonController tmp = new CategoryButtonController(c.getName());
+        //    categoryListBox.getChildren().add(tmp);
+        }
+*/
 
-
-
+        
     }
 
     void emptyCart(){
