@@ -1,8 +1,8 @@
 package imat;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -15,16 +15,19 @@ import java.io.IOException;
 
 public class CategoryButtonController extends AnchorPane {
 
+    private iMatController parentController;
+
     @FXML
     private Text categoryButtonName;
 
+    private ProductCategory category;
     @FXML
     Button categoryButton;
 
     @FXML
     ImageView categoryImage;
 
-    public CategoryButtonController(ProductCategory name) {
+    public CategoryButtonController(ProductCategory category, String name, iMatController parent) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryButton.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -34,11 +37,18 @@ public class CategoryButtonController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+        this.category = category;
+        this.categoryButtonName.setText(name);
+        this.parentController = parent;
 
-        this.categoryButtonName.setText(name.name());
+
+        }
+
+    @FXML
+    protected void onClick(Event event){
+        System.out.print("wtf");
+        parentController.showCategory(category);
     }
-
-    onClick
 
 
 

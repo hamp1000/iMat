@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.Product;
@@ -22,11 +23,7 @@ public class iMatController implements Initializable {
 
     iMatBackEnd backEnd = new iMatBackEnd();
 
-    @FXML
-    private TextField searchBar;
-
-    @FXML
-    private Button checkOutButton;
+    //-------------------------CategoryBar
 
     @FXML
     private VBox categoryListBox;
@@ -36,6 +33,9 @@ public class iMatController implements Initializable {
 
     private List<CategoryButtonController> categories;
 
+    //-------------------MainItemFlowPane
+    @FXML
+    FlowPane mainFlowPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -45,11 +45,25 @@ public class iMatController implements Initializable {
         categories = new ArrayList<>();
 
         for(ProductCategory s : tmpList){
-            categories.add(new CategoryButtonController(s));
+            String tmpString = s.name();
+
+            categories.add(new CategoryButtonController(s,tmpString, this));
         }
         categoryFlowPane.getChildren().addAll(categories);
+    }
 
-        
+    void showCategory(ProductCategory pc){
+        List<Product> ProductList = backEnd.getProductCategory(pc);
+        List<ProduktItem> produktItemList = new ArrayList<>();
+        mainFlowPane.getChildren().clear();
+        System.out.print("u made it here");
+        for(Product p: ProductList){
+
+            produktItemList.add(new ProduktItem(p.getName()));
+        }
+
+        mainFlowPane.getChildren().addAll(produktItemList);
+
     }
 
     void emptyCart(){
@@ -71,7 +85,6 @@ public class iMatController implements Initializable {
 
     public void searchItem(){
 
-        searchBar.setText("searched ITEM");
 
         //metod då man klickat att man sökt som visar sina varor
         getSearchedItems();
