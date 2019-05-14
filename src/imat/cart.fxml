@@ -6,7 +6,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="690" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.Cart">
    <children>
       <Line endX="1288.0" endY="150.1666717529297" startX="-5.6843418860808015E-14" startY="150.1666717529297" />
@@ -20,7 +19,7 @@
             <Font size="41.0" />
          </font>
       </Button>
-      <Button layoutX="1020.0" layoutY="595.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="270.0" text="Tillbaka">
+      <Button layoutX="1020.0" layoutY="595.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="270.0" style="-fx-background-color: #43ef43;" text="Nästa">
          <font>
             <Font size="41.0" />
          </font>
