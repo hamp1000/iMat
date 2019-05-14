@@ -11,7 +11,7 @@
 <AnchorPane prefHeight="45" prefWidth="235" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.CartItem">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="158.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
-      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/error.png" />
          </image>
