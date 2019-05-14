@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="210.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.CategoryButtonController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TextField?>
+
+<fx:root prefHeight="100.0" prefWidth="495.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="categoryButton" mnemonicParsing="false" prefHeight="80.0" prefWidth="210.0" />
-      <ImageView fx:id="categoryImage" fitHeight="42.0" fitWidth="58.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="categoryName" editable="false" layoutX="97.0" layoutY="27.0" prefHeight="25.0" prefWidth="99.0" />
+      <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="210.0" style="-fx-background-color: #00FF00;" />
+      <ImageView fitHeight="42.0" fitWidth="58.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="categoryButtonName" layoutX="55.0" layoutY="27.0" />
    </children>
-</AnchorPane>
+</fx:root>

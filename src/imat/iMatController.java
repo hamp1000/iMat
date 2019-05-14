@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
@@ -30,6 +31,8 @@ public class iMatController implements Initializable {
     @FXML
     VBox categoryListBox;
 
+    @FXML
+    FlowPane categoryFlowPane;
 
     List<CategoryButtonController> categories;
 
@@ -38,14 +41,18 @@ public class iMatController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        categories = new ArrayList<CategoryButtonController>();
-/*
-        for ( Product c: backEnd.getCategories()) {
-            categories.add(new CategoryButtonController(c.getName()));
-            CategoryButtonController tmp = new CategoryButtonController(c.getName());
-        //    categoryListBox.getChildren().add(tmp);
+        String[] tmpList = backEnd.getCategoryList();
+        categories = new ArrayList<>();
+
+        for(int i = 0;i<tmpList.length;i++){
+
+            CategoryButtonController tmp = new CategoryButtonController(tmpList[i]);
+            categoryListBox.getChildren().add(tmp);
         }
-*/
+
+
+
+
 
         
     }
