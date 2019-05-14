@@ -62,17 +62,21 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <SplitPane dividerPositions="0.16379310344827586" layoutX="2.0" prefHeight="324.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane dividerPositions="0.18181818181818182" layoutX="2.0" prefHeight="324.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                       <AnchorPane prefHeight="324.0" prefWidth="199.0">
                            <children>
-                              <VBox prefHeight="695.0" prefWidth="210.0" style="-fx-background-color: #e4ffe4;" />
+                              <VBox prefHeight="695.0" prefWidth="210.0" style="-fx-background-color: #e4ffe4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children></AnchorPane>
-                        <SplitPane dividerPositions="0.7634615384615384" prefHeight="695.0" prefWidth="415.0">
+                        <SplitPane dividerPositions="0.7634615384615384" prefHeight="695.0" prefWidth="1037.0">
                           <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="328.0" prefWidth="406.0" style="-fx-background-color: #FFFFFF;">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="328.0" prefWidth="749.0" style="-fx-background-color: #FFFFFF;">
                                  <children>
-                                    <FlowPane prefHeight="695.0" prefWidth="816.0" />
+                                    <ScrollPane prefHeight="693.0" prefWidth="792.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <FlowPane prefHeight="690.0" prefWidth="790.0" />
+                                       </content>
+                                    </ScrollPane>
                                  </children>
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -91,7 +95,7 @@
                                     </Button>
                                     <ScrollPane layoutY="42.0" prefHeight="571.0" prefWidth="249.0" style="-fx-background-color: #e4ffe4;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
                                        <content>
-                                          <FlowPane prefHeight="644.0" prefWidth="234.0" />
+                                          <FlowPane prefHeight="569.0" prefWidth="241.0" />
                                        </content>
                                     </ScrollPane>
                                     <Label alignment="CENTER" prefHeight="41.0" prefWidth="249.0" text="Varukorg">
