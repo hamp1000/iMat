@@ -9,7 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="800.0" maxWidth="1280.0" minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.iMatController">
@@ -69,7 +68,11 @@
                     <items>
                       <AnchorPane maxWidth="229.0" minWidth="229.0" prefHeight="324.0" prefWidth="199.0">
                            <children>
-                              <VBox fx:id="categoryListBox" prefHeight="693.0" prefWidth="229.0" style="-fx-background-color: #e4ffe4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <ScrollPane prefHeight="693.0" prefWidth="229.0">
+                                 <content>
+                                    <FlowPane fx:id="categoryFlowPane" prefHeight="200.0" prefWidth="200.0" />
+                                 </content>
+                              </ScrollPane>
 
                            </children></AnchorPane>
                         <SplitPane dividerPositions="0.7634615384615384" maxHeight="693.0" maxWidth="1041.0" minHeight="693.0" minWidth="1041.0" prefHeight="695.0" prefWidth="1037.0">

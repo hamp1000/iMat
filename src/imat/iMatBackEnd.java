@@ -12,13 +12,23 @@ public class iMatBackEnd {
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     ProductCategory category;
 
-    String[] categoryList = {"Pod","Bread","Berry", "Citrus fruit", "Hot drinks", "Cold drinks", "Exotic fruit", "Fish",
-            "Vegetable fruit", "Cabbage", "Meat", "Dairies", "Melons", "Flour Sugar Salt", "Nut and Seeds", "Pasta"};
+    private String[] categoryList = {"Pod","Bread","Berry", "Citrus fruit", "Hot drinks", "Cold drinks", "Exotic fruit", "Fish",
+            "Vegetable fruit", "Cabbage", "Meat", "Dairies", "Melons", "Flour Sugar Salt", "Nut and Seeds", "Pasta", "Potato Rice",
+            "Root Vegetable", "Fruit", "Sweet", "Herb"};
 
-    String[] getCategoryList(){
 
-        return categoryList;
+    public ProductCategory[] getCategoryList(){
+
+        ProductCategory[] category = ProductCategory.values();
+
+
+        return category;
+
+
 
     }
+
+
+
 
 }

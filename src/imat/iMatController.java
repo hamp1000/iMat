@@ -23,36 +23,31 @@ public class iMatController implements Initializable {
     iMatBackEnd backEnd = new iMatBackEnd();
 
     @FXML
-    TextField searchBar;
+    private TextField searchBar;
 
     @FXML
-    Button checkOutButton;
+    private Button checkOutButton;
 
     @FXML
-    VBox categoryListBox;
+    private VBox categoryListBox;
 
     @FXML
-    FlowPane categoryFlowPane;
+    private FlowPane categoryFlowPane;
 
-    List<CategoryButtonController> categories;
+    private List<CategoryButtonController> categories;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-
-        String[] tmpList = backEnd.getCategoryList();
+//  CATEGORY    CODE
+        ProductCategory[] tmpList = backEnd.getCategoryList();
         categories = new ArrayList<>();
 
-        for(int i = 0;i<tmpList.length;i++){
-
-            CategoryButtonController tmp = new CategoryButtonController(tmpList[i]);
-            categoryListBox.getChildren().add(tmp);
+        for(ProductCategory s : tmpList){
+            categories.add(new CategoryButtonController(s));
         }
-
-
-
-
+        categoryFlowPane.getChildren().addAll(categories);
 
         
     }

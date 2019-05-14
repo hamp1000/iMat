@@ -8,13 +8,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.io.IOException;
 
 public class CategoryButtonController extends AnchorPane {
 
     @FXML
-    private TextField categoryButtonName;
+    private Text categoryButtonName;
 
     @FXML
     Button categoryButton;
@@ -22,7 +24,7 @@ public class CategoryButtonController extends AnchorPane {
     @FXML
     ImageView categoryImage;
 
-    public CategoryButtonController(String name) {
+    public CategoryButtonController(ProductCategory name) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryButton.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -33,8 +35,10 @@ public class CategoryButtonController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        this.categoryButtonName.setText(name);
+        this.categoryButtonName.setText(name.name());
     }
+
+    onClick
 
 
 
