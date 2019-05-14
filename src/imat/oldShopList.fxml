@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="45" prefWidth="770" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.OldShopList">
+   <children>
+      <Label layoutX="72.0" layoutY="5.0" text="Datum" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="339.0" layoutY="7.0" text="XX Varor" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="624.0" layoutY="7.0" text="XX KR" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Line endX="5.0" endY="22.0" layoutX="223.0" layoutY="25.0" startX="5.0" startY="-24.0" />
+      <Line endX="5.0" endY="22.0" layoutX="536.0" layoutY="26.0" startX="5.0" startY="-26.0" />
+   </children>
+</AnchorPane>
