@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="690" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.Cart">
+   <children>
+      <Label layoutX="537.0" layoutY="-13.0" prefHeight="89.0" prefWidth="218.0" text="Bekräftelse" textAlignment="RIGHT">
+         <font>
+            <Font size="44.0" />
+         </font>
+      </Label>
+      <Button layoutX="756.0" layoutY="438.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="262.0" text="Fortsätt handla">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="113.0" fitWidth="590.0" layoutX="350.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/wizard%20(last%20step).png" />
+         </image>
+      </ImageView>
+      <Line endX="1041.0" layoutX="249.0" layoutY="158.0" startX="-249.0" />
+      <Text layoutX="405.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Din order är placerad!" wrappingWidth="481.689453125">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Text>
+      <Text layoutX="456.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tack för ditt köp!" wrappingWidth="379.689453125">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Text>
+      <Button layoutX="274.0" layoutY="438.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="262.0" text="Se kvitto">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Button>
+      <Text layoutX="514.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="du handla för totalt: XXX">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
