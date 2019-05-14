@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="690" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.Cart">
@@ -33,12 +34,13 @@
       </ImageView>
       <AnchorPane layoutX="1.0" layoutY="151.0" prefHeight="446.0" prefWidth="1290.0">
          <children>
-            <ScrollPane layoutX="-3.0" layoutY="-4.0" prefHeight="446.0" prefWidth="1291.0">
+            <ScrollPane layoutX="254.0" layoutY="2.0" prefHeight="440.0" prefWidth="771.0">
                <content>
                   <FlowPane prefHeight="446.0" prefWidth="1289.0" />
                </content>
             </ScrollPane>
          </children>
       </AnchorPane>
+      <Line endX="1180.0" endY="7.0" layoutX="102.0" layoutY="144.0" startX="-102.0" startY="7.0" />
    </children>
 </AnchorPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="50" prefWidth="750" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.WizardCartItem">
+   <children>
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="7.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/error.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="102.0" layoutY="4.0" text="Produkt namn">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="361.0" layoutY="4.0" text="Total pris">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="549.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/minus.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="591.0" layoutY="3.0" text="X">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="614.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/plus.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
