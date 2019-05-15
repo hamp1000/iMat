@@ -2,17 +2,19 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="690" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.Cart">
    <children>
-      <Line endX="1288.0" endY="150.1666717529297" startX="-5.6843418860808015E-14" startY="150.1666717529297" />
-      <Label layoutX="533.0" layoutY="-14.0" prefHeight="89.0" prefWidth="248.0" text="Varukorg" textAlignment="CENTER">
+      <Label layoutX="553.0" layoutY="-13.0" prefHeight="89.0" prefWidth="183.0" text="Varukorg" textAlignment="RIGHT">
          <font>
-            <Font size="61.0" />
+            <Font size="44.0" />
          </font>
       </Label>
       <Button layoutX="-1.0" layoutY="596.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="262.0" text="Tillbaka">
@@ -20,10 +22,25 @@
             <Font size="41.0" />
          </font>
       </Button>
-      <Button layoutX="1020.0" layoutY="595.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="270.0" text="Tillbaka">
+      <Button layoutX="1020.0" layoutY="595.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="270.0" style="-fx-background-color: #43ef43;" text="Nästa">
          <font>
             <Font size="41.0" />
          </font>
       </Button>
+      <ImageView fitHeight="113.0" fitWidth="590.0" layoutX="350.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/wizard%20(on%20cart).png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="1.0" layoutY="151.0" prefHeight="446.0" prefWidth="1290.0">
+         <children>
+            <ScrollPane layoutX="254.0" layoutY="2.0" prefHeight="440.0" prefWidth="771.0">
+               <content>
+                  <FlowPane prefHeight="446.0" prefWidth="1289.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <Line endX="1180.0" endY="7.0" layoutX="102.0" layoutY="144.0" startX="-102.0" startY="7.0" />
    </children>
 </AnchorPane>
