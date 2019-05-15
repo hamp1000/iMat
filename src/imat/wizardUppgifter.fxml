@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="690" prefWidth="1280" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.Cart">
+   <children>
+      <Button layoutX="-1.0" layoutY="596.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="262.0" text="Tillbaka">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Button>
+      <Button layoutX="1020.0" layoutY="595.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="270.0" style="-fx-background-color: #43ef43;" text="Nästa">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="113.0" fitWidth="590.0" layoutX="350.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/wiz(bekräfta).png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="1.0" layoutY="151.0" prefHeight="446.0" prefWidth="1290.0">
+         <children>
+            <Line endX="-97.0" endY="373.0" layoutX="1035.0" layoutY="45.0" startX="-97.0" startY="-21.0" stroke="#909090" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="375.0" layoutY="25.0" prefHeight="41.0" prefWidth="197.0" text="Dina uppgifter" textFill="#575757">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1006.0" layoutY="22.0" prefHeight="46.0" prefWidth="221.0" text="Leveranstid" textFill="#575757">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <ChoiceBox layoutX="986.0" layoutY="181.0" prefHeight="41.0" prefWidth="97.0" />
+            <ChoiceBox layoutX="1154.0" layoutY="181.0" prefHeight="41.0" prefWidth="97.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1154.0" layoutY="157.0" prefHeight="25.0" prefWidth="97.0" text="Tid">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="986.0" layoutY="157.0" prefHeight="25.0" prefWidth="97.0" text="Datum">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField layoutX="552.0" layoutY="107.0" prefHeight="25.0" prefWidth="282.0" promptText="Mobilnummer">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="73.0" layoutY="107.0" prefHeight="31.0" prefWidth="143.0" promptText="Förnamn">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="552.0" layoutY="189.0" prefHeight="25.0" prefWidth="282.0" promptText="Adress">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="552.0" layoutY="266.0" prefHeight="31.0" prefWidth="197.0" promptText="Postort">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="552.0" layoutY="345.0" prefHeight="31.0" prefWidth="132.0" promptText="Postnummer">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="247.0" layoutY="107.0" prefHeight="31.0" prefWidth="143.0" promptText="Efternamn">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="73.0" layoutY="189.0" prefHeight="31.0" prefWidth="320.0" promptText="Personnummer">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="73.0" layoutY="266.0" prefHeight="31.0" prefWidth="320.0" promptText="Kortnummer">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="73.0" layoutY="345.0" prefHeight="31.0" prefWidth="143.0" promptText="CCV-kod">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="73.0" layoutY="328.0" text="CCV-kod">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="249.0" text="Kortnummer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="170.0" text="Personnummer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="88.0" text="Förnamn">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="247.0" layoutY="88.0" text="Efternamn">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="552.0" layoutY="88.0" text="Mobilnummer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="552.0" layoutY="170.0" text="Adress">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="552.0" layoutY="249.0" text="Postort">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="552.0" layoutY="328.0" text="Postnummer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Line endX="1189.0" endY="7.0" layoutX="102.0" layoutY="144.0" startX="-102.0" startY="7.0" />
+   </children>
+</AnchorPane>
