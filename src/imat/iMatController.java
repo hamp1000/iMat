@@ -3,6 +3,7 @@ package imat;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.Product;
@@ -40,11 +41,11 @@ public class iMatController implements Initializable {
             categories.add(new CategoryButtonController(category.getKey(), category.getValue(), this));
         }
         categoryFlowPane.getChildren().addAll(categories);
-      
+
     }
 
     public void searchItem() {
-        List<Product> returnedList = backEnd.getSearchedItem(searchBar.toString());
+        List<Product> returnedList = backend.searchProduct(searchBar.getText());
 
         showProducts(returnedList);
 
@@ -63,6 +64,7 @@ public class iMatController implements Initializable {
     }
     void showCategory(Category category) {
         List<Product> products = backend.getCategoryProducts(category);
+        showProducts(products);
     }
 
     void emptyCart() {

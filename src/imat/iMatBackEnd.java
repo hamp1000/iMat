@@ -16,6 +16,11 @@ public class iMatBackEnd {
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
+    public List<Product> searchProduct(String s){
+        return dataHandler.findProducts(s);
+    }
+
+
     public Map<Category, String> getCategories() {
         Map<Category, String> categories = new HashMap<>();
         categories.put(Category.MEAT_FISH, "Kött & Fisk");
