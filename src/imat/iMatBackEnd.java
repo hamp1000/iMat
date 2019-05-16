@@ -16,7 +16,19 @@ public class iMatBackEnd {
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
-    public List<Product> getProductCategory(Category category) {
+    public Map<Category, String> getCategories() {
+        Map<Category, String> categories = new HashMap<>();
+        categories.put(Category.MEAT_FISH, "Kött & Fisk");
+        categories.put(Category.FRUIT_BERRIES, "Frukt & Bär");
+        categories.put(Category.VEGETABLES, "Grönsaker");
+        categories.put(Category.DRINKS, "Drycker");
+        categories.put(Category.DAIRIES, "Mejeri & Ägg");
+        categories.put(Category.BREAD, "Bröd");
+        categories.put(Category.DRY_STUFFS, "Skafferi");
+        return categories;
+    }
+
+    public List<Product> getCategoryProducts(Category category) {
         switch (category) {
             case MEAT_FISH: {
                 if (categoryListMap.containsKey(Category.MEAT_FISH)) {

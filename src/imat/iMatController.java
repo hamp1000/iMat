@@ -1,27 +1,18 @@
 package imat;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 
-import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ProductCategory;
-import javax.swing.text.html.ImageView;
-import java.io.IOException;
+
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class iMatController implements Initializable {
 
-    iMatBackEnd backEnd = new iMatBackEnd();
+    iMatBackEnd backend = new iMatBackEnd();
 
     //-------------------------CategoryBar
 
@@ -41,60 +32,60 @@ public class iMatController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 //  CATEGORY    CODE
-        ProductCategory[] tmpList = backEnd.getCategoryList();
+        Map<Category, String> categoriesMap = backend.getCategories();
         categories = new ArrayList<>();
 
-        for(ProductCategory s : tmpList){
-            String tmpString = s.name();
-
-            categories.add(new CategoryButtonController(s,tmpString, this));
+        for (Map.Entry<Category, String> category : categoriesMap.entrySet()) {
+            categories.add(new CategoryButtonController(category.getKey(), category.getValue(), this));
         }
         categoryFlowPane.getChildren().addAll(categories);
     }
 
-    void showCategory(ProductCategory pc){
-        List<Product> ProductList = backEnd.getProductCategory(pc);
-        List<ProduktItem> produktItemList = new ArrayList<>();
+    void showCategory(Category category) {
+        List<Product> products = backend.getCategoryProducts(category);
+        List<ProduktItem> productItems = new ArrayList<>();
         mainFlowPane.getChildren().clear();
         System.out.print("u made it here");
-        for(Product p: ProductList){
+        for (Product p : products) {
 
-            produktItemList.add(new ProduktItem(p.getName()));
+            productItems.add(new ProduktItem(p.getName()));
         }
 
-        mainFlowPane.getChildren().addAll(produktItemList);
+        mainFlowPane.getChildren().addAll(productItems);
 
     }
 
-    void emptyCart(){
+    void emptyCart() {
         //töm en lista som har varor i sig?
     }
-    void showFavorites(){
+
+    void showFavorites() {
         //sätt favoritvyn längst fram
     }
-    void closeFavorites(){
+
+    void closeFavorites() {
         //sätt favoritvyn längstbak
     }
-    void showCheckOut(){
+
+    void showCheckOut() {
         //sätt kassan länngst fram
 
     }
-    void closeCheckOut(){
+
+    void closeCheckOut() {
         //sätt kassan längst bak
     }
 
-    public void searchItem(){
+    public void searchItem() {
 
 
         //metod då man klickat att man sökt som visar sina varor
         getSearchedItems();
     }
-    ArrayList getSearchedItems(){
+
+    ArrayList getSearchedItems() {
         return null;
     }
-
-
-
 
 
 }
