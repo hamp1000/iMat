@@ -17,17 +17,14 @@ public class CategoryButtonController extends AnchorPane {
 
     private iMatController parentController;
 
-    @FXML
-    private Text categoryButtonName;
-
-    private ProductCategory category;
+    private Category category;
     @FXML
     Button categoryButton;
 
     @FXML
     ImageView categoryImage;
 
-    public CategoryButtonController(ProductCategory category, String name, iMatController parent) {
+    public CategoryButtonController(Category category, String name, iMatController parent) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryButton.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -38,18 +35,14 @@ public class CategoryButtonController extends AnchorPane {
             throw new RuntimeException(exception);
         }
         this.category = category;
-        this.categoryButtonName.setText(name);
         this.parentController = parent;
+        categoryButton.textProperty().set(name);
 
-
-        }
+    }
 
     @FXML
-    protected void onClick(Event event){
+    protected void onClick(Event event) {
         System.out.print("wtf");
         parentController.showCategory(category);
     }
-
-
-
 }
