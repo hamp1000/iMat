@@ -5,30 +5,106 @@ import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class iMatBackEnd {
 
+    private Map<Category, List<Product>> categoryListMap = new HashMap<>();
+
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
+    public List<Product> getProductCategory(Category category) {
+        switch (category) {
+            case MEAT_FISH: {
+                if (categoryListMap.containsKey(Category.MEAT_FISH)) {
+                    return categoryListMap.get(Category.MEAT_FISH);
+                }
+                List<Product> products = new ArrayList<>();
+                products.addAll(dataHandler.getProducts(ProductCategory.MEAT));
+                products.addAll(dataHandler.getProducts(ProductCategory.FISH));
+                categoryListMap.put(Category.MEAT_FISH, products);
+                return products;
+            }
 
-    private String[] categoryList = {"Pod","Bread","Berry", "Citrus fruit", "Hot drinks", "Cold drinks", "Exotic fruit", "Fish",
-            "Vegetable fruit", "Cabbage", "Meat", "Dairies", "Melons", "Flour Sugar Salt", "Nut and Seeds", "Pasta", "Potato Rice",
-            "Root Vegetable", "Fruit", "Sweet", "Herb"};
+            case FRUIT_BERRIES: {
+                if (categoryListMap.containsKey(Category.FRUIT_BERRIES)) {
+                    return categoryListMap.get(Category.FRUIT_BERRIES);
+                }
+                List<Product> products = new ArrayList<>();
+                products.addAll(dataHandler.getProducts(ProductCategory.BERRY));
+                products.addAll(dataHandler.getProducts(ProductCategory.CITRUS_FRUIT));
+                products.addAll(dataHandler.getProducts(ProductCategory.EXOTIC_FRUIT));
+                products.addAll(dataHandler.getProducts(ProductCategory.MELONS));
+                products.addAll(dataHandler.getProducts(ProductCategory.FRUIT));
+                categoryListMap.put(Category.FRUIT_BERRIES, products);
+                return products;
+            }
 
+            case VEGETABLES: {
+                if (categoryListMap.containsKey(Category.VEGETABLES)) {
+                    return categoryListMap.get(Category.VEGETABLES);
+                }
+                List<Product> products = new ArrayList<>();
+                products.addAll(dataHandler.getProducts(ProductCategory.VEGETABLE_FRUIT));
+                products.addAll(dataHandler.getProducts(ProductCategory.CABBAGE));
+                products.addAll(dataHandler.getProducts(ProductCategory.ROOT_VEGETABLE));
+                products.addAll(dataHandler.getProducts(ProductCategory.POD));
+                categoryListMap.put(Category.VEGETABLES, products);
+                return products;
+            }
 
-    public ProductCategory[] getCategoryList(){
+            case DRINKS: {
+                if (categoryListMap.containsKey(Category.DRINKS)) {
+                    return categoryListMap.get(Category.DRINKS);
+                }
+                List<Product> products = new ArrayList<>();
+                products.addAll(dataHandler.getProducts(ProductCategory.HOT_DRINKS));
+                products.addAll(dataHandler.getProducts(ProductCategory.COLD_DRINKS));
+                categoryListMap.put(Category.DRINKS, products);
+                return products;
+            }
 
-        return ProductCategory.values();
+            case DAIRIES: {
+                if (categoryListMap.containsKey(Category.DAIRIES)) {
+                    return categoryListMap.get(Category.DAIRIES);
+                }
+                List<Product> products = new ArrayList<>();
+                products.addAll(dataHandler.getProducts(ProductCategory.DAIRIES));
+                categoryListMap.put(Category.DAIRIES, products);
+                return products;
+            }
 
+            case BREAD: {
+                if (categoryListMap.containsKey(Category.BREAD)) {
+                    return categoryListMap.get(Category.BREAD);
+                }
+                List<Product> products = new ArrayList<>();
+                products.addAll(dataHandler.getProducts(ProductCategory.BREAD));
+                categoryListMap.put(Category.BREAD, products);
+                return products;
+            }
+
+            case DRY_STUFFS: {
+                if (categoryListMap.containsKey(Category.DRY_STUFFS)) {
+                    return categoryListMap.get(Category.DRY_STUFFS);
+                }
+                List<Product> products = new ArrayList<>();
+                products.addAll(dataHandler.getProducts(ProductCategory.FLOUR_SUGAR_SALT));
+                products.addAll(dataHandler.getProducts(ProductCategory.PASTA));
+                products.addAll(dataHandler.getProducts(ProductCategory.POTATO_RICE));
+                products.addAll(dataHandler.getProducts(ProductCategory.NUTS_AND_SEEDS));
+                products.addAll(dataHandler.getProducts(ProductCategory.HERB));
+                categoryListMap.put(Category.DRY_STUFFS, products);
+                return products;
+            }
+
+            default:
+                throw new IllegalArgumentException("Invalid category");
+        }
     }
-
-    public List<Product> getProductCategory(ProductCategory pc){
-        return dataHandler.getProducts(pc);
-    }
-
-
 
 
 }
