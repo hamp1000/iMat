@@ -16,6 +16,13 @@ public class iMatBackEnd {
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
+
+    public List<Product> getSearchedItem(String item)
+    {
+        return dataHandler.findProducts(item);
+    }
+
+
     public List<Product> getProductCategory(Category category) {
         switch (category) {
             case MEAT_FISH: {

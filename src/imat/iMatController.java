@@ -1,22 +1,17 @@
 package imat;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 
-import javafx.scene.image.Image;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
-import javax.swing.text.html.ImageView;
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class iMatController implements Initializable {
@@ -25,6 +20,8 @@ public class iMatController implements Initializable {
 
     //-------------------------CategoryBar
 
+    @FXML
+    private TextField searchBar;
     @FXML
     private VBox categoryListBox;
 
@@ -40,29 +37,36 @@ public class iMatController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-//  CATEGORY    CODE
-        ProductCategory[] tmpList = backEnd.getCategoryList();
-        categories = new ArrayList<>();
 
-        for(ProductCategory s : tmpList){
-            String tmpString = s.name();
 
-            categories.add(new CategoryButtonController(s,tmpString, this));
-        }
-        categoryFlowPane.getChildren().addAll(categories);
+
     }
 
+    public void searchItem() {
+        List<Product> returnedList = backEnd.getSearchedItem(searchBar.toString());
+
+        showProducts(returnedList);
+
+    }
+    public void showProducts(List<Product> products){
+        List<ProductItem> productItems = new ArrayList<>();
+
+        for(Product product: products)
+        {
+            productItems.add(new ProductItem(product.getName()));
+        }
+        mainFlowPane.getChildren().addAll(productItems);
+    }
+    
     void showCategory(ProductCategory pc){
         List<Product> ProductList = backEnd.getProductCategory(pc);
-        List<ProduktItem> produktItemList = new ArrayList<>();
+        List<ProductItem> productItemList = new ArrayList<>();
         mainFlowPane.getChildren().clear();
         System.out.print("u made it here");
         for(Product p: ProductList){
 
-            produktItemList.add(new ProduktItem(p.getName()));
+            productItemList.add(new ProductItem(p.getName()));
         }
-
-        mainFlowPane.getChildren().addAll(produktItemList);
 
     }
 
@@ -83,15 +87,7 @@ public class iMatController implements Initializable {
         //sätt kassan längst bak
     }
 
-    public void searchItem(){
 
-
-        //metod då man klickat att man sökt som visar sina varor
-        getSearchedItems();
-    }
-    ArrayList getSearchedItems(){
-        return null;
-    }
 
 
 
