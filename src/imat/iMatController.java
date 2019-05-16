@@ -3,20 +3,16 @@ package imat;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class iMatController implements Initializable {
 
-    iMatBackEnd backEnd = new iMatBackEnd();
+    iMatBackEnd backend = new iMatBackEnd();
 
     //-------------------------CategoryBar
 
@@ -37,9 +33,14 @@ public class iMatController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+      Map<Category, String> categoriesMap = backend.getCategories();
+        categories = new ArrayList<>();
 
-
-
+        for (Map.Entry<Category, String> category : categoriesMap.entrySet()) {
+            categories.add(new CategoryButtonController(category.getKey(), category.getValue(), this));
+        }
+        categoryFlowPane.getChildren().addAll(categories);
+      
     }
 
     public void searchItem() {
@@ -48,6 +49,7 @@ public class iMatController implements Initializable {
         showProducts(returnedList);
 
     }
+  
     public void showProducts(List<Product> products){
         List<ProductItem> productItems = new ArrayList<>();
 
@@ -55,42 +57,33 @@ public class iMatController implements Initializable {
         {
             productItems.add(new ProductItem(product.getName()));
         }
+        mainFlowPane.getChildren().clear();
+      
         mainFlowPane.getChildren().addAll(productItems);
     }
-    
-    void showCategory(ProductCategory pc){
-        List<Product> ProductList = backEnd.getProductCategory(pc);
-        List<ProductItem> productItemList = new ArrayList<>();
-        mainFlowPane.getChildren().clear();
-        System.out.print("u made it here");
-        for(Product p: ProductList){
-
-            productItemList.add(new ProductItem(p.getName()));
-        }
-
+    void showCategory(Category category) {
+        List<Product> products = backend.getCategoryProducts(category);
     }
 
-    void emptyCart(){
+    void emptyCart() {
         //töm en lista som har varor i sig?
     }
-    void showFavorites(){
+
+    void showFavorites() {
         //sätt favoritvyn längst fram
     }
-    void closeFavorites(){
+
+    void closeFavorites() {
         //sätt favoritvyn längstbak
     }
-    void showCheckOut(){
+
+    void showCheckOut() {
         //sätt kassan länngst fram
 
     }
-    void closeCheckOut(){
+
+    void closeCheckOut() {
         //sätt kassan längst bak
     }
-
-
-
-
-
-
 
 }
