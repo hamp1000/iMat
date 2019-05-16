@@ -49,7 +49,7 @@ public class iMatController implements Initializable {
     public void searchItem() {
         List<Product> returnedList = backend.searchProduct(searchBar.getText());
 
-        //showProducts(returnedList);
+        showProducts(returnedList);
 
     }
   
@@ -66,8 +66,7 @@ public class iMatController implements Initializable {
     }
 
     void showCategory(Category category) {
-        List<Product> products = backend.getCategoryProducts(category);
-        showProducts(products);
+        showProducts(backend.getCategoryProducts(category));
     }
 
     void emptyCart() {
