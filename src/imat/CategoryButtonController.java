@@ -17,9 +17,6 @@ public class CategoryButtonController extends AnchorPane {
 
     private iMatController parentController;
 
-    @FXML
-    private Text categoryButtonName;
-
     private Category category;
     @FXML
     Button categoryButton;
@@ -38,18 +35,14 @@ public class CategoryButtonController extends AnchorPane {
             throw new RuntimeException(exception);
         }
         this.category = category;
-        this.categoryButtonName.setText(name);
         this.parentController = parent;
+        categoryButton.textProperty().set(name);
 
-
-        }
+    }
 
     @FXML
-    protected void onClick(Event event){
+    protected void onClick(Event event) {
         System.out.print("wtf");
         parentController.showCategory(category);
     }
-
-
-
 }
