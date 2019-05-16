@@ -1,5 +1,6 @@
 package imat;
 
+import javafx.util.Pair;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
@@ -15,21 +16,20 @@ public class iMatBackEnd {
     private Map<Category, List<Product>> categoryListMap = new HashMap<>();
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
-
+    
     public List<Product> searchProduct(String s){
         return dataHandler.findProducts(s);
     }
 
-
-    public Map<Category, String> getCategories() {
-        Map<Category, String> categories = new HashMap<>();
-        categories.put(Category.MEAT_FISH, "Kött & Fisk");
-        categories.put(Category.FRUIT_BERRIES, "Frukt & Bär");
-        categories.put(Category.VEGETABLES, "Grönsaker");
-        categories.put(Category.DRINKS, "Drycker");
-        categories.put(Category.DAIRIES, "Mejeri & Ägg");
-        categories.put(Category.BREAD, "Bröd");
-        categories.put(Category.DRY_STUFFS, "Skafferi");
+    public List<Pair<Category, String>> getCategories() {
+        List<Pair<Category, String>> categories = new ArrayList<>();
+        categories.add(new Pair(Category.MEAT_FISH, "Kött & Fisk"));
+        categories.add(new Pair(Category.FRUIT_BERRIES, "Frukt & Bär"));
+        categories.add(new Pair(Category.VEGETABLES, "Grönsaker"));
+        categories.add(new Pair(Category.DRINKS, "Drycker"));
+        categories.add(new Pair(Category.DAIRIES, "Mejeri & Ägg"));
+        categories.add(new Pair(Category.BREAD, "Bröd"));
+        categories.add(new Pair(Category.DRY_STUFFS, "Skafferi"));
         return categories;
     }
 
