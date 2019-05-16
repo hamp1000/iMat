@@ -17,6 +17,8 @@ public class iMatController implements Initializable {
     //-------------------------CategoryBar
 
     @FXML
+    private TextField searchBar;
+    @FXML
     private VBox categoryListBox;
 
     @FXML
@@ -31,28 +33,36 @@ public class iMatController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-//  CATEGORY    CODE
-        Map<Category, String> categoriesMap = backend.getCategories();
+      Map<Category, String> categoriesMap = backend.getCategories();
         categories = new ArrayList<>();
 
         for (Map.Entry<Category, String> category : categoriesMap.entrySet()) {
             categories.add(new CategoryButtonController(category.getKey(), category.getValue(), this));
         }
         categoryFlowPane.getChildren().addAll(categories);
+      
     }
 
+    public void searchItem() {
+        List<Product> returnedList = backEnd.getSearchedItem(searchBar.toString());
+
+        showProducts(returnedList);
+
+    }
+  
+    public void showProducts(List<Product> products){
+        List<ProductItem> productItems = new ArrayList<>();
+
+        for(Product product: products)
+        {
+            productItems.add(new ProductItem(product.getName()));
+        }
+        mainFlowPane.getChildren().clear();
+      
+        mainFlowPane.getChildren().addAll(productItems);
+    }
     void showCategory(Category category) {
         List<Product> products = backend.getCategoryProducts(category);
-        List<ProduktItem> productItems = new ArrayList<>();
-        mainFlowPane.getChildren().clear();
-        System.out.print("u made it here");
-        for (Product p : products) {
-
-            productItems.add(new ProduktItem(p.getName()));
-        }
-
-        mainFlowPane.getChildren().addAll(productItems);
-
     }
 
     void emptyCart() {
@@ -75,17 +85,5 @@ public class iMatController implements Initializable {
     void closeCheckOut() {
         //sätt kassan längst bak
     }
-
-    public void searchItem() {
-
-
-        //metod då man klickat att man sökt som visar sina varor
-        getSearchedItems();
-    }
-
-    ArrayList getSearchedItems() {
-        return null;
-    }
-
 
 }

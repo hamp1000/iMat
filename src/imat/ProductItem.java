@@ -2,15 +2,13 @@ package imat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class ProduktItem extends AnchorPane {
+public class ProductItem extends AnchorPane {
 
 
     @FXML
@@ -20,8 +18,8 @@ public class ProduktItem extends AnchorPane {
     ImageView produktImage;
 
 
-    public ProduktItem(String name) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt.fxml"));
+    public ProductItem(String name) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
