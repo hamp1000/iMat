@@ -18,7 +18,7 @@
         <items>
           <AnchorPane maxHeight="97.0" maxWidth="1278.0" minHeight="97.0" minWidth="1278.0" prefHeight="97.0" prefWidth="1278.0" style="-fx-background-color: #94ce94;">
                <children>
-                  <TextField fx:id="searchBar" layoutX="211.0" layoutY="25.0" onAction="#searchItem" prefHeight="47.0" prefWidth="428.0" promptText="Sök:" style="-fx-border-color: black;" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="25.0">
+                  <TextField fx:id="searchBar" layoutX="211.0" layoutY="25.0" prefHeight="47.0" prefWidth="428.0" promptText="Sök:" style="-fx-border-color: black;" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="25.0">
 
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -30,7 +30,7 @@
                         <Image url="@resources/Logo-iMat.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="66.0" fitWidth="66.0" layoutX="1044.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="8.0">
+                  <ImageView fitHeight="66.0" fitWidth="66.0" layoutX="1044.0" layoutY="4.0" onMousePressed="#showFavorites" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="8.0">
                      <image>
                         <Image url="@resources/rating.png" />
                      </image>
@@ -60,6 +60,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
+                  <Button layoutX="639.0" layoutY="24.0" mnemonicParsing="false" onAction="#searchItem" prefHeight="47.0" prefWidth="101.0" text="Sök" />
                </children>
             </AnchorPane>
           <AnchorPane maxHeight="695.0" maxWidth="1278.0" minHeight="695.0" minWidth="1278.0" prefHeight="695.0" prefWidth="1278.0">

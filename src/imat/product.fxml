@@ -11,27 +11,35 @@
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="255.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="1.0" arcWidth="1.0" fill="WHITE" height="49.0" layoutX="28.0" layoutY="281.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <ImageView fx:id="produktImage" fitHeight="170.0" fitWidth="227.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <ImageView fx:id="productImage" fitHeight="170.0" fitWidth="227.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <image>
+            <Image url="@resources/imat/images/product_1.jpg" />
+         </image></ImageView>
       <Label fx:id="produktname" alignment="CENTER" layoutX="14.0" layoutY="196.0" prefHeight="49.0" prefWidth="227.0" textAlignment="CENTER" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="196.0">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="86.0" layoutY="281.0" prefHeight="49.0" prefWidth="83.0" style="-fx-border-width: 1px; -fx-border-color: black;" text="7" textAlignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="86.0">
+      <Label fx:id="amountLabel" alignment="CENTER" layoutX="86.0" layoutY="281.0" prefHeight="49.0" prefWidth="83.0" style="-fx-border-width: 1px; -fx-border-color: black;" text="7" textAlignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="86.0">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
       <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="182.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="41.0">
          <image>
-            <Image url="@../../../../../OneDrive%20-%20Chalmers%20tekniska%20hogskola/Design%20&amp;%20gränssnitt/prototyp/add.png" />
+            <Image url="@resources/plus.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../OneDrive%20-%20Chalmers%20tekniska%20hogskola/Design%20&amp;%20gränssnitt/prototyp/minus.png" />
+            <Image url="@resources/minus.png" />
          </image>
       </ImageView>
-      <Text fx:id="produktName" layoutX="117.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" />
+      <Text fx:id="productName" layoutX="117.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" />
+      <ImageView fx:id="favoriteImageView" fitHeight="32.0" fitWidth="32.0" layoutX="7.0" layoutY="7.0" onMouseClicked="#makeFavorite" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/notFavorite.png" />
+         </image>
+      </ImageView>
    </children>
    </fx:root>
