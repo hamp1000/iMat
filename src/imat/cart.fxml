@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="690" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.Cart">
+<fx:root prefHeight="690" prefWidth="1280" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.Cart">
    <children>
       <Label layoutX="553.0" layoutY="-13.0" prefHeight="89.0" prefWidth="183.0" text="Varukorg" textAlignment="RIGHT">
          <font>
@@ -43,4 +43,4 @@
       </AnchorPane>
       <Line endX="1180.0" endY="7.0" layoutX="102.0" layoutY="144.0" startX="-102.0" startY="7.0" />
    </children>
-</AnchorPane>
+</fx:root>
