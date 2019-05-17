@@ -3,7 +3,6 @@ package imat;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
@@ -19,13 +18,9 @@ import java.util.List;
 
 public class iMatController implements Initializable {
 
-    iMatBackEnd backend = new iMatBackEnd();
-
 //--------------------------------------------Reciept part
 
     List<Order> recieptList;
-
-
 
     //-------------------------CategoryBar
 
@@ -47,10 +42,9 @@ public class iMatController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+      List<Pair<Category, String>> categoryPairs = iMatBackend.getCategories();
         //recieptList
         recieptList = new ArrayList<>();
-
-      List<Pair<Category, String>> categoryPairs = backend.getCategories();
         categories = new ArrayList<>();
 
         for (Pair<Category, String> category : categoryPairs) {
@@ -72,13 +66,13 @@ public class iMatController implements Initializable {
     }
 
     public void searchItem() {
-        List<Product> returnedList = backend.searchProduct(searchBar.getText());
+        List<Product> returnedList = iMatBackend.searchProduct(searchBar.getText());
 
         showProducts(returnedList);
 
     }
     public void showFavorites(){
-        showProducts(backend.dataHandler.favorites());
+        showProducts(iMatBackend.favorites());
 
     }
   
@@ -95,7 +89,7 @@ public class iMatController implements Initializable {
     }
 
     void showCategory(Category category) {
-        showProducts(backend.getCategoryProducts(category));
+        showProducts(iMatBackend.getCategoryProducts(category));
     }
 
     void emptyCart() {
