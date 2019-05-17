@@ -24,6 +24,7 @@ public class ProductItem extends AnchorPane {
     @FXML
     Text productName;
 
+
     @FXML
     ImageView productImage;
 
