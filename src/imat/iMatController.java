@@ -6,10 +6,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Pair;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 public class iMatController implements Initializable {
 
@@ -34,10 +36,10 @@ public class iMatController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-      Map<Category, String> categoriesMap = backend.getCategories();
+      List<Pair<Category, String>> categoryPairs = backend.getCategories();
         categories = new ArrayList<>();
 
-        for (Map.Entry<Category, String> category : categoriesMap.entrySet()) {
+        for (Pair<Category, String> category : categoryPairs) {
             categories.add(new CategoryButtonController(category.getKey(), category.getValue(), this));
         }
         categoryFlowPane.getChildren().addAll(categories);
@@ -62,9 +64,9 @@ public class iMatController implements Initializable {
       
         mainFlowPane.getChildren().addAll(productItems);
     }
+
     void showCategory(Category category) {
-        List<Product> products = backend.getCategoryProducts(category);
-        showProducts(products);
+        showProducts(backend.getCategoryProducts(category));
     }
 
     void emptyCart() {
