@@ -9,12 +9,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
-import java.util.List;
 
-public class ProductItem extends AnchorPane {
+public class ProductItemController extends AnchorPane {
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
@@ -36,10 +34,16 @@ public class ProductItem extends AnchorPane {
 
     Product product;
 
-    public ProductItem(Product product) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product.fxml"));
+    public ProductItemController(Product product) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Product.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
 
         if (favoriteImage == null) {
             favoriteImage = Utils.makeResourceImage(getClass().getClassLoader(), "isFavorite.png");
@@ -49,11 +53,6 @@ public class ProductItem extends AnchorPane {
 
         }
 
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
         this.productName.setText(product.getName());
         this.product = product;
 
@@ -88,19 +87,19 @@ public class ProductItem extends AnchorPane {
 
     @FXML
     public void increaseAmount() {
-        iMatBackend.addProductToCart(product);
+        Backend.addProductToCart(product);
         updateProductAmount();
     }
 
 
     @FXML
     public void decreaseAmount() {
-        iMatBackend.removeProductFromCart(product);
+        Backend.removeProductFromCart(product);
         updateProductAmount();
     }
 
     private void updateProductAmount() {
-        amountLabel.setText(Integer.toString(iMatBackend.getProductCartAmount(product)));
+        amountLabel.setText(Integer.toString(Backend.getProductCartAmount(product)));
     }
 
 }

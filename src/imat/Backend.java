@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class iMatBackend {
+public class Backend {
 
     private static Map<Category, List<Product>> categoryListMap = new HashMap<>();
 
