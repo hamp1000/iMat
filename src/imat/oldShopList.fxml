@@ -5,20 +5,19 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="45" prefWidth="770" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.OldShopList">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="770.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="72.0" layoutY="5.0" text="Datum" textAlignment="CENTER">
+      <Label fx:id="dateLabel" layoutX="72.0" layoutY="5.0" text="Datum" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="339.0" layoutY="7.0" text="XX Varor" textAlignment="CENTER">
+      <Label fx:id="itemLabel" layoutX="339.0" layoutY="7.0" text="XX Varor" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="624.0" layoutY="7.0" text="XX KR" textAlignment="CENTER">
+      <Label fx:id="costLabel" layoutX="624.0" layoutY="7.0" text="XX KR" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
@@ -26,4 +25,4 @@
       <Line endX="5.0" endY="22.0" layoutX="223.0" layoutY="25.0" startX="5.0" startY="-24.0" />
       <Line endX="5.0" endY="22.0" layoutX="536.0" layoutY="26.0" startX="5.0" startY="-26.0" />
    </children>
-</AnchorPane>
+</fx:root>

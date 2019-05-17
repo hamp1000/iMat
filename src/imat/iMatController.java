@@ -8,15 +8,24 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Pair;
+import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 
 public class iMatController implements Initializable {
 
     iMatBackEnd backend = new iMatBackEnd();
+
+//--------------------------------------------Reciept part
+
+    List<Order> recieptList;
+
+
 
     //-------------------------CategoryBar
 
@@ -38,6 +47,9 @@ public class iMatController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //recieptList
+        recieptList = new ArrayList<>();
+
       List<Pair<Category, String>> categoryPairs = backend.getCategories();
         categories = new ArrayList<>();
 
@@ -45,6 +57,17 @@ public class iMatController implements Initializable {
             categories.add(new CategoryButtonController(category.getKey(), category.getValue(), this));
         }
         categoryFlowPane.getChildren().addAll(categories);
+
+    }
+
+    public void showReciept(){
+
+        List<OldShopList> reciepts = new ArrayList<>();
+        for(Order o: recieptList) {
+            reciepts.add(new OldShopList(o));
+        }
+        mainFlowPane.getChildren().clear();
+        mainFlowPane.getChildren().addAll(reciepts);
 
     }
 
