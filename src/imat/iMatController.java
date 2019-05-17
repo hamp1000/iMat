@@ -3,6 +3,7 @@ package imat;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
@@ -19,6 +20,7 @@ public class iMatController implements Initializable {
 
     @FXML
     private TextField searchBar;
+
     @FXML
     private VBox categoryListBox;
 
@@ -50,13 +52,17 @@ public class iMatController implements Initializable {
         showProducts(returnedList);
 
     }
+    public void showFavorites(){
+        showProducts(backend.dataHandler.favorites());
+
+    }
   
     public void showProducts(List<Product> products){
         List<ProductItem> productItems = new ArrayList<>();
 
         for(Product product: products)
         {
-            productItems.add(new ProductItem(product.getName()));
+            productItems.add(new ProductItem(product));
         }
         mainFlowPane.getChildren().clear();
       
@@ -71,13 +77,7 @@ public class iMatController implements Initializable {
         //töm en lista som har varor i sig?
     }
 
-    void showFavorites() {
-        //sätt favoritvyn längst fram
-    }
 
-    void closeFavorites() {
-        //sätt favoritvyn längstbak
-    }
 
     void showCheckOut() {
         //sätt kassan länngst fram
