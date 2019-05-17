@@ -18,7 +18,7 @@
         <items>
           <AnchorPane maxHeight="97.0" maxWidth="1278.0" minHeight="97.0" minWidth="1278.0" prefHeight="97.0" prefWidth="1278.0" style="-fx-background-color: #94ce94;">
                <children>
-                  <TextField fx:id="searchBar" layoutX="211.0" layoutY="25.0" prefHeight="47.0" prefWidth="428.0" promptText="Sök:" style="-fx-border-color: black;" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="25.0">
+                  <TextField fx:id="searchBar" layoutX="211.0" layoutY="25.0" onAction="#searchItem" prefHeight="47.0" prefWidth="428.0" promptText="Sök:" style="-fx-border-color: black;" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="25.0">
 
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -35,7 +35,7 @@
                         <Image url="@resources/rating.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="47.0" fitWidth="46.0" layoutX="1136.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="93.0" AnchorPane.topAnchor="15.0">
+                  <ImageView fx:id="recieptImageView" fitHeight="47.0" fitWidth="46.0" layoutX="1136.0" layoutY="14.0" onMousePressed="#showReciept" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="93.0" AnchorPane.topAnchor="15.0">
                      <image>
                         <Image url="@resources/bill.png" />
                      </image>
