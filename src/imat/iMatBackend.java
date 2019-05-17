@@ -4,6 +4,7 @@ import javafx.util.Pair;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 import java.util.ArrayList;
@@ -11,17 +12,48 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class iMatBackEnd {
+public class iMatBackend {
 
-    private Map<Category, List<Product>> categoryListMap = new HashMap<>();
+    private static Map<Category, List<Product>> categoryListMap = new HashMap<>();
 
-    IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+    private static IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     
-    public List<Product> searchProduct(String s){
+    public static List<Product> searchProduct(String s){
         return dataHandler.findProducts(s);
     }
 
-    public List<Pair<Category, String>> getCategories() {
+    public static List<Product> favorites() {
+        return dataHandler.favorites();
+    }
+
+    public static void addProductToCart(Product product) {
+        dataHandler.getShoppingCart().addProduct(product);
+    }
+
+    public static void removeProductFromCart(Product product) {
+        List<ShoppingItem> items = dataHandler.getShoppingCart().getItems();
+        for (int i = 0; i < items.size(); ++i) {
+            if (items.get(i).getProduct().getProductId() == product.getProductId()) {
+                dataHandler.getShoppingCart().removeItem(i);
+                break;
+            }
+        }
+    }
+
+    public static int getProductCartAmount(Product product) {
+        List<ShoppingItem> cartItems = dataHandler.getShoppingCart().getItems();
+
+        double amount = 0;
+        for (ShoppingItem item : cartItems) {
+            if (item.getProduct().getProductId() == product.getProductId()) {
+                amount += item.getAmount();
+            }
+        }
+
+        return (int)Math.round(amount);
+    }
+
+    public static List<Pair<Category, String>> getCategories() {
         List<Pair<Category, String>> categories = new ArrayList<>();
         categories.add(new Pair(Category.MEAT_FISH, "Kött & Fisk"));
         categories.add(new Pair(Category.FRUIT_BERRIES, "Frukt & Bär"));
@@ -33,7 +65,7 @@ public class iMatBackEnd {
         return categories;
     }
 
-    public List<Product> getCategoryProducts(Category category) {
+    public static List<Product> getCategoryProducts(Category category) {
         switch (category) {
             case MEAT_FISH: {
                 if (categoryListMap.containsKey(Category.MEAT_FISH)) {

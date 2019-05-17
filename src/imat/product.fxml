@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="255.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="255.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="1.0" arcWidth="1.0" fill="WHITE" height="49.0" layoutX="28.0" layoutY="281.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="200.0" />
       <ImageView fx:id="productImage" fitHeight="170.0" fitWidth="227.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
@@ -25,18 +25,18 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="182.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="41.0">
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="182.0" layoutY="289.0" onMouseClicked="#increaseAmount" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="41.0">
          <image>
             <Image url="@resources/plus.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="290.0" onMouseClicked="#decreaseAmount" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/minus.png" />
          </image>
       </ImageView>
       <Text fx:id="productName" layoutX="117.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" />
-      <ImageView fx:id="favoriteImageView" fitHeight="32.0" fitWidth="32.0" layoutX="7.0" layoutY="7.0" onMouseClicked="#makeFavorite" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="favoriteImageView" fitHeight="32.0" fitWidth="32.0" layoutX="7.0" layoutY="7.0" onMouseClicked="#toggleFavorite" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/notFavorite.png" />
          </image>

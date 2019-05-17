@@ -2,14 +2,17 @@ package imat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ProductItem extends AnchorPane {
 
@@ -27,6 +30,9 @@ public class ProductItem extends AnchorPane {
     @FXML
     ImageView favoriteImageView;
 
+    @FXML
+    Label amountLabel;
+
     Product product;
 
     public ProductItem(Product product) {
@@ -42,8 +48,6 @@ public class ProductItem extends AnchorPane {
 
         }
 
-
-
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
@@ -52,14 +56,14 @@ public class ProductItem extends AnchorPane {
         this.productName.setText(product.getName());
         this.product = product;
 
-        if(dataHandler.isFavorite(this.product)){
+        if (dataHandler.isFavorite(this.product)) {
             favorite();
 
         } else {
             unfavorite();
         }
         this.productImage.setImage(dataHandler.getFXImage(product));
-
+        updateProductAmount();
     }
 
     void favorite() {
@@ -69,15 +73,33 @@ public class ProductItem extends AnchorPane {
     void unfavorite() {
         favoriteImageView.setImage(notFavoriteImage);
     }
+
     @FXML
-    public void makeFavorite(){
-        if(dataHandler.isFavorite(product)){
+    public void toggleFavorite() {
+        if (dataHandler.isFavorite(product)) {
             dataHandler.removeFavorite(product);
             unfavorite();
         } else {
             dataHandler.addFavorite(product);
             favorite();
         }
+    }
+
+    @FXML
+    public void increaseAmount() {
+        iMatBackend.addProductToCart(product);
+        updateProductAmount();
+    }
+
+
+    @FXML
+    public void decreaseAmount() {
+        iMatBackend.removeProductFromCart(product);
+        updateProductAmount();
+    }
+
+    private void updateProductAmount() {
+        amountLabel.setText(Integer.toString(iMatBackend.getProductCartAmount(product)));
     }
 
 }
