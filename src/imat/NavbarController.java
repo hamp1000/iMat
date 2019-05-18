@@ -38,6 +38,11 @@ public class NavbarController extends AnchorPane {
 
     @FXML
     private void showReceipt() {
+        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.RECEIPTS, null));
+    }
 
+    @FXML
+    private void showHelp() {
+        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.HELP, null));
     }
 }

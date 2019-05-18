@@ -30,7 +30,7 @@
             <Image url="@resources/bill.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="20.0">
+      <ImageView fitHeight="41.0" fitWidth="46.0" onMousePressed="#showHelp" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="20.0">
          <image>
             <Image url="@resources/info.png" />
          </image>

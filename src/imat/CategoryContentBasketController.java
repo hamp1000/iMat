@@ -18,6 +18,8 @@ public class CategoryContentBasketController extends AnchorPane implements Navig
     CategoryListController categoryList;
     ProductListController productList;
     ShoppingCartController shoppingCart;
+    HelpController help;
+    ReceiptListController receiptList;
 
     @FXML
     GridPane mainGridPane;
@@ -42,13 +44,20 @@ public class CategoryContentBasketController extends AnchorPane implements Navig
         categoryList = new CategoryListController();
         productList = new ProductListController();
         shoppingCart = new ShoppingCartController();
+        help = new HelpController();
+        receiptList = new ReceiptListController();
 
         mainGridPane.add(categoryList, 0, 1);
         mainGridPane.add(shoppingCart, 2, 1);
 
         contentStackPane.getChildren().add(productList);
+        contentStackPane.getChildren().add(help);
+        contentStackPane.getChildren().add(receiptList);
 
         NavigationEventService.attach(this);
+
+        help.toFront();
+        contentLabel.setText("Hjälp");
     }
 
     @Override
@@ -77,6 +86,16 @@ public class CategoryContentBasketController extends AnchorPane implements Navig
                 contentLabel.setText("Sök: " + event.arg);
                 break;
 
+            }
+            case RECEIPTS: {
+                receiptList.toFront();
+                contentLabel.setText("Orderhistorik");
+                break;
+            }
+            case HELP: {
+                help.toFront();
+                contentLabel.setText("Hjälp");
+                break;
             }
         }
     }

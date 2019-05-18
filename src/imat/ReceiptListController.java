@@ -2,30 +2,19 @@ package imat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Order;
-import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 
 
 public class ReceiptListController extends AnchorPane {
-
     @FXML
-    private Label itemLabel;
+    VBox receiptItemsVBox;
 
-    @FXML
-    Label dateLabel;
-
-    @FXML
-    Label costLabel;
-
-    int itemAmount = 0;
-    int total = 0;
-
-    public ReceiptListController(Order o) {
+    public ReceiptListController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ReceiptList.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -36,13 +25,8 @@ public class ReceiptListController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        dateLabel.setText(new SimpleDateFormat("yyyy-MM-dd").format(o.getDate()));
-        //loopar igenom alla items man har så man får antalet
-        for(ShoppingItem si: o.getItems()){
-            itemAmount++;
-            total += si.getTotal();
+        for (Order order : IMatDataHandler.getInstance().getOrders()) {
+            receiptItemsVBox.getChildren().add(new ReceiptListItemController(order));
         }
-        itemLabel.setText(Integer.toString(itemAmount));
-        costLabel.setText(Integer.toString(total));
     }
 }
