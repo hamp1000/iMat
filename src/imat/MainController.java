@@ -21,15 +21,6 @@ public class MainController implements Initializable {
     private StackPane mainStackPane;
 
     @FXML
-    private TextField searchBar;
-
-    @FXML
-    private VBox categoryListBox;
-
-    @FXML
-    private FlowPane categoryFlowPane;
-
-    @FXML
     FlowPane mainFlowPane;
 
     private List<Order> recieptList = new ArrayList<>();
@@ -55,45 +46,4 @@ public class MainController implements Initializable {
         mainFlowPane.getChildren().addAll(reciepts);
 
     }
-
-    public void searchItem() {
-        List<Product> returnedList = Backend.searchProduct(searchBar.getText());
-
-        showProducts(returnedList);
-
-    }
-
-    public void showFavorites() {
-        showProducts(Backend.favorites());
-    }
-
-    public void showProducts(List<Product> products) {
-        List<ProductItemController> productItems = new ArrayList<>();
-
-        for (Product product : products) {
-            productItems.add(new ProductItemController(product));
-        }
-        mainFlowPane.getChildren().clear();
-
-        mainFlowPane.getChildren().addAll(productItems);
-    }
-
-    void showCategory(Category category) {
-        showProducts(Backend.getCategoryProducts(category));
-    }
-
-    void emptyCart() {
-        //töm en lista som har varor i sig?
-    }
-
-
-    void showCheckOut() {
-        //sätt kassan länngst fram
-
-    }
-
-    void closeCheckOut() {
-        //sätt kassan längst bak
-    }
-
 }

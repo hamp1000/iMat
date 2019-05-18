@@ -15,7 +15,7 @@ public class ProductListController extends AnchorPane {
     @FXML
     private FlowPane productsFlowPane;
 
-    public ProductListController() {
+    public ProductListController(CategoryContentBasketController parent) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductList.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -25,24 +25,31 @@ public class ProductListController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
+        productsFlowPane.setPrefWidth(parent.getMaxWidth());
     }
 
     public void showFavorites() {
         showProducts(Backend.favorites());
     }
 
-    public void showProducts(List<Product> products) {
+    public void showSearch(String s) {
+        showProducts(Backend.searchProduct(s));
+    }
+
+    void showCategory(Category category) {
+        showProducts(Backend.getCategoryProducts(category));
+    }
+
+    private void showProducts(List<Product> products) {
         List<ProductItemController> productItems = new ArrayList<>();
 
         for (Product product : products) {
             productItems.add(new ProductItemController(product));
         }
+
         productsFlowPane.getChildren().clear();
 
         productsFlowPane.getChildren().addAll(productItems);
-    }
-
-    void showCategory(Category category) {
-        showProducts(Backend.getCategoryProducts(category));
     }
 }

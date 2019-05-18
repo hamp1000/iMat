@@ -1,5 +1,8 @@
 package imat;
 
+import imat.events.NavigationEvent;
+import imat.events.NavigationEventService;
+import imat.events.NavigationRoute;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,10 +13,9 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class CategoryButtonController extends AnchorPane {
-
     private MainController parentController;
-
     private Category category;
+
     @FXML
     Button categoryButton;
 
@@ -33,12 +35,10 @@ public class CategoryButtonController extends AnchorPane {
         this.category = category;
         this.parentController = parent;
         categoryButton.textProperty().set(name);
-
     }
 
     @FXML
     protected void onClick(Event event) {
-        System.out.print("wtf");
-        parentController.showCategory(category);
+        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.PRODUCTS_CATEGORY, category));
     }
 }
