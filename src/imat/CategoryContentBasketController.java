@@ -17,6 +17,7 @@ import java.util.List;
 public class CategoryContentBasketController extends AnchorPane implements NavigationEventObserver {
     CategoryListController categoryList;
     ProductListController productList;
+    ShoppingCartController shoppingCart;
 
     @FXML
     GridPane mainGridPane;
@@ -39,9 +40,11 @@ public class CategoryContentBasketController extends AnchorPane implements Navig
         }
 
         categoryList = new CategoryListController();
-        productList = new ProductListController(this);
+        productList = new ProductListController();
+        shoppingCart = new ShoppingCartController();
 
         mainGridPane.add(categoryList, 0, 1);
+        mainGridPane.add(shoppingCart, 2, 1);
 
         contentStackPane.getChildren().add(productList);
 

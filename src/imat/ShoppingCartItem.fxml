@@ -7,8 +7,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="45" prefWidth="235" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.CartItem">
+<fx:root prefHeight="45" prefWidth="235" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="158.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
       <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
@@ -16,12 +15,12 @@
             <Image url="@resources/error.png" />
          </image>
       </ImageView>
-      <Label layoutX="65.0" layoutY="6.0" prefHeight="34.0" prefWidth="102.0" text="Exempel">
+      <Label fx:id="productName" layoutX="65.0" layoutY="6.0" prefHeight="34.0" prefWidth="102.0" text="Exempel">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="187.0" layoutY="7.0" text="X" textAlignment="CENTER">
+      <Label fx:id="productAmount" layoutX="187.0" layoutY="7.0" text="X" textAlignment="CENTER">
          <font>
             <Font size="22.0" />
          </font>
@@ -37,4 +36,4 @@
          </image>
       </ImageView>
    </children>
-</AnchorPane>
+</fx:root>

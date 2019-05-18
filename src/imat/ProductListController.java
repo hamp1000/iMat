@@ -15,7 +15,7 @@ public class ProductListController extends AnchorPane {
     @FXML
     private FlowPane productsFlowPane;
 
-    public ProductListController(CategoryContentBasketController parent) {
+    public ProductListController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductList.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
