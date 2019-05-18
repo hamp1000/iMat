@@ -5,15 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Order;
-import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
-public class OldShopList extends AnchorPane {
+public class ReceiptListController extends AnchorPane {
 
     @FXML
     private Label itemLabel;
@@ -27,8 +25,8 @@ public class OldShopList extends AnchorPane {
     int itemAmount = 0;
     int total = 0;
 
-    public OldShopList(Order o) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("oldShopList.fxml"));
+    public ReceiptListController(Order o) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ReceiptList.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

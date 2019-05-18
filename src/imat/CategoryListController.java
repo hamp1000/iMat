@@ -16,7 +16,7 @@ public class CategoryListController extends AnchorPane {
     @FXML
     private VBox categoryVBox;
 
-    public CategoryListController(MainController mainController) {
+    public CategoryListController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CategoryList.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -29,7 +29,7 @@ public class CategoryListController extends AnchorPane {
 
         List<Pair<Category, String>> categoryPairs = Backend.getCategories();
         for (Pair<Category, String> category : categoryPairs) {
-            categories.add(new CategoryButtonController(category.getKey(), category.getValue(), mainController));
+            categories.add(new CategoryButtonController(category.getKey(), category.getValue()));
         }
         categoryVBox.getChildren().addAll(categories);
     }

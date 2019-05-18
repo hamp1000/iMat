@@ -18,7 +18,7 @@ public class Backend {
 
     private static IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     
-    public static List<Product> searchProduct(String s){
+    public static List<Product> searchProducts(String s){
         return dataHandler.findProducts(s);
     }
 

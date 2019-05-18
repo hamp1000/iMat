@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class CategoryContentBasketController extends AnchorPane implements NavigationEventObserver {
-    MainController mainController;
     CategoryListController categoryList;
     ProductListController productList;
 
@@ -28,7 +27,7 @@ public class CategoryContentBasketController extends AnchorPane implements Navig
     @FXML
     Label contentLabel;
 
-    public CategoryContentBasketController(MainController mainController) {
+    public CategoryContentBasketController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CategoryContentBasket.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -39,8 +38,7 @@ public class CategoryContentBasketController extends AnchorPane implements Navig
             throw new RuntimeException(exception);
         }
 
-        this.mainController = mainController;
-        categoryList = new CategoryListController(mainController);
+        categoryList = new CategoryListController();
         productList = new ProductListController(this);
 
         mainGridPane.add(categoryList, 0, 1);
@@ -67,11 +65,15 @@ public class CategoryContentBasketController extends AnchorPane implements Navig
             case PRODUCTS_FAVORITE: {
                 productList.showFavorites();
                 productList.toFront();
+                contentLabel.setText("Favoriter");
                 break;
             }
             case PRODUCTS_SEARCH: {
                 productList.showSearch((String) event.arg);
+                productList.toFront();
+                contentLabel.setText("Sök: " + event.arg);
                 break;
+
             }
         }
     }

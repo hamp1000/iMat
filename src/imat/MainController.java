@@ -3,10 +3,8 @@ package imat;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import se.chalmers.cse.dat216.project.Order;
-import se.chalmers.cse.dat216.project.Product;
 
 import java.net.URL;
 import java.util.*;
@@ -26,7 +24,7 @@ public class MainController implements Initializable {
     private List<Order> recieptList = new ArrayList<>();
 
     private NavbarController navbar = new NavbarController();
-    private CategoryContentBasketController categoryContentBasket = new CategoryContentBasketController(this);
+    private CategoryContentBasketController categoryContentBasket = new CategoryContentBasketController();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -36,14 +34,12 @@ public class MainController implements Initializable {
 
     }
 
-    public void showReciept() {
-
-        List<OldShopList> reciepts = new ArrayList<>();
+    public void showReceipt() {
+        List<ReceiptListController> reciepts = new ArrayList<>();
         for (Order o : recieptList) {
-            reciepts.add(new OldShopList(o));
+            reciepts.add(new ReceiptListController(o));
         }
         mainFlowPane.getChildren().clear();
         mainFlowPane.getChildren().addAll(reciepts);
-
     }
 }

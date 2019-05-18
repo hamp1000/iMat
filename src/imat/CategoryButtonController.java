@@ -13,7 +13,6 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class CategoryButtonController extends AnchorPane {
-    private MainController parentController;
     private Category category;
 
     @FXML
@@ -22,7 +21,7 @@ public class CategoryButtonController extends AnchorPane {
     @FXML
     ImageView categoryImage;
 
-    public CategoryButtonController(Category category, String name, MainController parent) {
+    public CategoryButtonController(Category category, String name) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CategoryButton.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -32,8 +31,8 @@ public class CategoryButtonController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
         this.category = category;
-        this.parentController = parent;
         categoryButton.textProperty().set(name);
     }
 

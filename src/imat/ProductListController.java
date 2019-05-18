@@ -25,8 +25,6 @@ public class ProductListController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
-        productsFlowPane.setPrefWidth(parent.getMaxWidth());
     }
 
     public void showFavorites() {
@@ -34,7 +32,7 @@ public class ProductListController extends AnchorPane {
     }
 
     public void showSearch(String s) {
-        showProducts(Backend.searchProduct(s));
+        showProducts(Backend.searchProducts(s));
     }
 
     void showCategory(Category category) {
