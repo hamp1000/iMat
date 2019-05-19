@@ -52,47 +52,47 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="552.0" layoutY="107.0" prefHeight="25.0" prefWidth="282.0" promptText="Mobilnummer">
+            <TextField fx:id="phoneNumberField" layoutX="552.0" layoutY="107.0" prefHeight="25.0" prefWidth="282.0" promptText="Mobilnummer">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField layoutX="73.0" layoutY="107.0" prefHeight="31.0" prefWidth="143.0" promptText="Förnamn">
+            <TextField fx:id="firstNameField" layoutX="73.0" layoutY="107.0" prefHeight="31.0" prefWidth="143.0" promptText="Förnamn">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField layoutX="552.0" layoutY="189.0" prefHeight="25.0" prefWidth="282.0" promptText="Adress">
+            <TextField fx:id="addressField" layoutX="552.0" layoutY="189.0" prefHeight="25.0" prefWidth="282.0" promptText="Adress">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField layoutX="552.0" layoutY="266.0" prefHeight="31.0" prefWidth="197.0" promptText="Postort">
+            <TextField fx:id="areaField" layoutX="552.0" layoutY="266.0" prefHeight="31.0" prefWidth="197.0" promptText="Postort">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField layoutX="552.0" layoutY="345.0" prefHeight="31.0" prefWidth="132.0" promptText="Postnummer">
+            <TextField fx:id="zipField" layoutX="552.0" layoutY="345.0" prefHeight="31.0" prefWidth="132.0" promptText="Postnummer">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField layoutX="247.0" layoutY="107.0" prefHeight="31.0" prefWidth="143.0" promptText="Efternamn">
+            <TextField fx:id="lastNameField" layoutX="247.0" layoutY="107.0" prefHeight="31.0" prefWidth="143.0" promptText="Efternamn">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField layoutX="73.0" layoutY="189.0" prefHeight="31.0" prefWidth="320.0" promptText="Personnummer">
+            <TextField fx:id="personalNumberField" layoutX="73.0" layoutY="189.0" prefHeight="31.0" prefWidth="320.0" promptText="Personnummer">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField layoutX="73.0" layoutY="266.0" prefHeight="31.0" prefWidth="320.0" promptText="Kortnummer">
+            <TextField fx:id="cardNumberField" layoutX="73.0" layoutY="266.0" prefHeight="31.0" prefWidth="320.0" promptText="Kortnummer">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField layoutX="73.0" layoutY="345.0" prefHeight="31.0" prefWidth="143.0" promptText="CCV-kod">
+            <TextField fx:id="cardCVCField" layoutX="73.0" layoutY="345.0" prefHeight="31.0" prefWidth="143.0" promptText="CCV-kod">
                <font>
                   <Font size="15.0" />
                </font>
