@@ -45,4 +45,8 @@ public class NavbarController extends AnchorPane {
     private void showHelp() {
         NavigationEventService.push(new NavigationEvent(NavigationRoute.HELP, null));
     }
+
+    @FXML private void showHome() {
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.HELP, null));
+    }
 }
