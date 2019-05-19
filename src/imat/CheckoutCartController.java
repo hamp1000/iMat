@@ -63,10 +63,10 @@ public class CheckoutCartController extends AnchorPane implements ShoppingCartLi
     }
 
     @FXML private void navigateBack() {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.HELP, null));
+        NavigationEventService.pop();
     }
 
     @FXML private void navigateNext() {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.CHECKOUT_CUSTOMER_INFO, null));
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.CHECKOUT_CUSTOMER_INFO, null));
     }
 }

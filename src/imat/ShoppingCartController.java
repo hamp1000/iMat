@@ -10,9 +10,7 @@ import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ShoppingCartController extends AnchorPane implements ShoppingCartListener {
     @FXML
@@ -51,6 +49,6 @@ public class ShoppingCartController extends AnchorPane implements ShoppingCartLi
 
     @FXML
     private void showCheckout() {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.CHECKOUT_CART, null));
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.CHECKOUT_CART, null));
     }
 }

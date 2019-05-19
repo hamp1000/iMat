@@ -28,21 +28,21 @@ public class NavbarController extends AnchorPane {
 
     @FXML
     private void searchItem() {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.PRODUCTS_SEARCH, searchBar.getText()));
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.PRODUCTS_SEARCH, searchBar.getText()));
     }
 
     @FXML
     private void showFavorites() {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.PRODUCTS_FAVORITE, null));
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.PRODUCTS_FAVORITE, null));
     }
 
     @FXML
     private void showReceipt() {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.RECEIPTS, null));
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.RECEIPTS, null));
     }
 
     @FXML
     private void showHelp() {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.HELP, null));
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.HELP, null));
     }
 }

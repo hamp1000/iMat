@@ -39,10 +39,10 @@ public class CheckoutCustomerInfoController extends AnchorPane implements Naviga
 
     @FXML
     private void navigateBack() {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.CHECKOUT_CART, null));
+        NavigationEventService.pop();
     }
 
     @FXML private void navigateNext() {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.CHECKOUT_ORDER_CONFIRMATION, null));
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.CHECKOUT_ORDER_CONFIRMATION, null));
     }
 }

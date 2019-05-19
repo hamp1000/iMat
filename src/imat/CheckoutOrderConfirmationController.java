@@ -57,10 +57,10 @@ public class CheckoutOrderConfirmationController extends AnchorPane implements N
     }
 
     @FXML private void navigateReceipt() {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.RECEIPT, order));
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.RECEIPT, order));
     }
 
     @FXML private void navigateHome() {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.HELP, null));
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.HELP, null));
     }
 }
