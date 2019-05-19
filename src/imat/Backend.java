@@ -37,6 +37,23 @@ public class Backend {
         }
     }
 
+    public static void deleteProductFromCart(Product product) {
+        List<ShoppingItem> items = dataHandler.getShoppingCart().getItems();
+
+        int index = 0;
+        while (index < items.size()) {
+            if (items.get(index).getProduct().getProductId() == product.getProductId()) {
+                dataHandler.getShoppingCart().removeItem(index);
+            } else {
+                index++;
+            }
+        }
+    }
+
+    public static void emptyCart() {
+        dataHandler.getShoppingCart().getItems().clear();
+    }
+
     public static int getProductCartAmount(Product product) {
         List<ShoppingItem> cartItems = dataHandler.getShoppingCart().getItems();
 

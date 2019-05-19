@@ -9,6 +9,8 @@ import se.chalmers.cse.dat216.project.Product;
 import java.io.IOException;
 
 public class ShoppingCartItemController extends AnchorPane {
+    private Product product;
+
     @FXML
     Label productName;
 
@@ -26,7 +28,21 @@ public class ShoppingCartItemController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        this.product = product;
+
         productName.setText(product.getName());
         productAmount.setText(Integer.toString(amount));
+    }
+
+    @FXML private void removeProduct() {
+        Backend.deleteProductFromCart(product);
+    }
+
+    @FXML private void increaseAmount() {
+        Backend.addProductToCart(product);
+    }
+
+    @FXML private void decreaseAmount() {
+        Backend.removeProductFromCart(product);
     }
 }

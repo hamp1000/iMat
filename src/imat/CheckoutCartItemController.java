@@ -12,6 +12,7 @@ import se.chalmers.cse.dat216.project.Product;
 import java.io.IOException;
 
 public class CheckoutCartItemController extends AnchorPane {
+    private Product product;
     @FXML
     private Label amountLabel;
 
@@ -32,8 +33,22 @@ public class CheckoutCartItemController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        this.product = product;
+
         productNameLabel.setText(product.getName());
         amountLabel.setText(Integer.toString(amount));
         totalCostLabel.setText(String.format("%.2f",product.getPrice() * amount));
+    }
+
+    @FXML private void removeProduct() {
+        Backend.deleteProductFromCart(product);
+    }
+
+    @FXML private void increaseAmount() {
+        Backend.addProductToCart(product);
+    }
+
+    @FXML private void decreaseAmount() {
+        Backend.removeProductFromCart(product);
     }
 }

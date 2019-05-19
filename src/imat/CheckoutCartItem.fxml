@@ -8,7 +8,7 @@
 
 <fx:root prefHeight="50" prefWidth="750" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="7.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="7.0" layoutY="8.0" onMouseClicked="#removeProduct" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/error.png" />
          </image>
@@ -23,7 +23,7 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="549.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="549.0" layoutY="7.0" onMouseClicked="#decreaseAmount" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/minus.png" />
          </image>
@@ -33,7 +33,7 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="614.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="614.0" layoutY="8.0" onMouseClicked="#increaseAmount" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/plus.png" />
          </image>
