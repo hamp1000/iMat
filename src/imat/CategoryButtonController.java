@@ -38,6 +38,6 @@ public class CategoryButtonController extends AnchorPane {
 
     @FXML
     protected void onClick(Event event) {
-        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.PRODUCTS_CATEGORY, category));
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.PRODUCTS_CATEGORY, category));
     }
 }

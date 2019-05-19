@@ -37,6 +37,23 @@ public class Backend {
         }
     }
 
+    public static void deleteProductFromCart(Product product) {
+        List<ShoppingItem> items = dataHandler.getShoppingCart().getItems();
+
+        int index = 0;
+        while (index < items.size()) {
+            if (items.get(index).getProduct().getProductId() == product.getProductId()) {
+                dataHandler.getShoppingCart().removeItem(index);
+            } else {
+                index++;
+            }
+        }
+    }
+
+    public static void emptyCart() {
+        dataHandler.getShoppingCart().getItems().clear();
+    }
+
     public static int getProductCartAmount(Product product) {
         List<ShoppingItem> cartItems = dataHandler.getShoppingCart().getItems();
 
@@ -163,5 +180,23 @@ public class Backend {
         }
     }
 
+    public static List<ShoppingItem> getShoppingCartItems() {
+        Map<Product, Integer> productsMap = new LinkedHashMap<>();
 
+        for (ShoppingItem item : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
+            if (productsMap.containsKey(item.getProduct())) {
+                productsMap.put(item.getProduct(), productsMap.get(item.getProduct()) + 1);
+            } else {
+                productsMap.put(item.getProduct(), 1);
+            }
+        }
+
+        List<ShoppingItem> shoppingItems = new ArrayList<>();
+
+        for (Map.Entry<Product, Integer> entry : productsMap.entrySet()) {
+            shoppingItems.add(new ShoppingItem(entry.getKey(), entry.getValue()));
+        }
+
+        return shoppingItems;
+    }
 }

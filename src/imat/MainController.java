@@ -1,5 +1,8 @@
 package imat;
 
+import imat.events.NavigationEvent;
+import imat.events.NavigationEventService;
+import imat.events.NavigationRoute;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -29,5 +32,7 @@ public class MainController implements Initializable {
         mainStackPane.getChildren().add(checkoutCustomerInfo);
         mainStackPane.getChildren().add(checkoutOrderConfirmation);
         mainStackPane.getChildren().add(categoryContentBasket);
+
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.HELP, null));
     }
 }

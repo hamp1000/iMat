@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.util.ResourceBundle;
 
@@ -22,7 +23,12 @@ public class iMat extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
 
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        IMatDataHandler.getInstance().shutDown();
     }
 
     public static void main(String[] args) {

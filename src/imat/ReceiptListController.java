@@ -24,7 +24,9 @@ public class ReceiptListController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+    }
 
+    public void updateList() {
         for (Order order : IMatDataHandler.getInstance().getOrders()) {
             receiptItemsVBox.getChildren().add(new ReceiptListItemController(order));
         }
