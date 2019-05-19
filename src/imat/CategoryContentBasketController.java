@@ -65,6 +65,7 @@ public class CategoryContentBasketController extends AnchorPane implements Navig
         switch (event.route) {
             case PRODUCTS_CATEGORY: {
                 productList.showCategory((Category) event.arg);
+                this.toFront();
                 productList.toFront();
                 List<Pair<Category, String>> categoryNames = Backend.getCategories();
                 for (Pair<Category, String> category : categoryNames) {
@@ -76,23 +77,27 @@ public class CategoryContentBasketController extends AnchorPane implements Navig
             }
             case PRODUCTS_FAVORITE: {
                 productList.showFavorites();
+                this.toFront();
                 productList.toFront();
                 contentLabel.setText("Favoriter");
                 break;
             }
             case PRODUCTS_SEARCH: {
                 productList.showSearch((String) event.arg);
+                this.toFront();
                 productList.toFront();
                 contentLabel.setText("Sök: " + event.arg);
                 break;
 
             }
             case RECEIPTS: {
+                this.toFront();
                 receiptList.toFront();
                 contentLabel.setText("Orderhistorik");
                 break;
             }
             case HELP: {
+                this.toFront();
                 help.toFront();
                 contentLabel.setText("Hjälp");
                 break;

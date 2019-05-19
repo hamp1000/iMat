@@ -1,5 +1,8 @@
 package imat;
 
+import imat.events.NavigationEvent;
+import imat.events.NavigationEventService;
+import imat.events.NavigationRoute;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -50,7 +53,12 @@ public class ShoppingCartController extends AnchorPane implements ShoppingCartLi
 
         for (Map.Entry<Product, Integer> entry : items.entrySet()) {
 
-        shoppingItemsVBox.getChildren().add(new ShoppingCartItemController(entry.getKey(), entry.getValue()));
+            shoppingItemsVBox.getChildren().add(new ShoppingCartItemController(entry.getKey(), entry.getValue()));
         }
+    }
+
+    @FXML
+    private void showCheckout() {
+        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.CHECKOUT_CART, null));
     }
 }
