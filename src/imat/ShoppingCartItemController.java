@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ public class ShoppingCartItemController extends AnchorPane {
     @FXML
     Label productAmount;
 
-    public ShoppingCartItemController(ShoppingItem item) {
+    public ShoppingCartItemController(Product product, int amount) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShoppingCartItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -26,7 +26,7 @@ public class ShoppingCartItemController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        productName.setText(item.getProduct().getName());
-        productAmount.setText("1");
+        productName.setText(product.getName());
+        productAmount.setText(Integer.toString(amount));
     }
 }

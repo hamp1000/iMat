@@ -4,13 +4,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import se.chalmers.cse.dat216.project.CartEvent;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.ShoppingCartListener;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class ShoppingCartController extends AnchorPane implements ShoppingCartListener {
     @FXML
@@ -38,10 +36,21 @@ public class ShoppingCartController extends AnchorPane implements ShoppingCartLi
     }
 
     private void updateShoppingCartItems() {
-        shoppingItemsVBox.getChildren().clear();
+        Map<Product, Integer> items = new LinkedHashMap<>();
 
         for (ShoppingItem item : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
-            shoppingItemsVBox.getChildren().add(new ShoppingCartItemController(item));
+            if (items.containsKey(item.getProduct())) {
+                items.put(item.getProduct(), new Integer(items.get(item.getProduct()) + 1));
+            } else {
+                items.put(item.getProduct(), new Integer(1));
+            }
+        }
+
+        shoppingItemsVBox.getChildren().clear();
+
+        for (Map.Entry<Product, Integer> entry : items.entrySet()) {
+
+        shoppingItemsVBox.getChildren().add(new ShoppingCartItemController(entry.getKey(), entry.getValue()));
         }
     }
 }
