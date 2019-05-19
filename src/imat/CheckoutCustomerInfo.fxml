@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="690" prefWidth="1280" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.Cart">
+<fx:root prefHeight="690" prefWidth="1280" style="-fx-background-color: #FFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button layoutX="-1.0" layoutY="596.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="262.0" text="Tillbaka">
          <font>
@@ -146,4 +146,4 @@
       </AnchorPane>
       <Line endX="1189.0" endY="7.0" layoutX="102.0" layoutY="144.0" startX="-102.0" startY="7.0" />
    </children>
-</AnchorPane>
+</fx:root>

@@ -14,12 +14,13 @@ public class iMat extends Application {
     public void start(Stage stage) throws Exception {
         ResourceBundle bundle = java.util.ResourceBundle.getBundle("imat/resources/iMat");
 
-        Parent root = FXMLLoader.load(getClass().getResource("imat.fxml"), bundle);
+        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"), bundle);
 
-        Scene scene = new Scene(root, 1200, 800);
+        Scene scene = new Scene(root, 1280, 800);
         System.out.print(System.getProperty("user.home"));
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
 
     }

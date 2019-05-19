@@ -1,31 +1,28 @@
 package imat;
 
+import imat.events.NavigationEvent;
+import imat.events.NavigationEventService;
+import imat.events.NavigationRoute;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
-import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.io.IOException;
 
 public class CategoryButtonController extends AnchorPane {
-
-    private iMatController parentController;
-
     private Category category;
+
     @FXML
     Button categoryButton;
 
     @FXML
     ImageView categoryImage;
 
-    public CategoryButtonController(Category category, String name, iMatController parent) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryButton.fxml"));
+    public CategoryButtonController(Category category, String name) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CategoryButton.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -34,15 +31,13 @@ public class CategoryButtonController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        this.category = category;
-        this.parentController = parent;
-        categoryButton.textProperty().set(name);
 
+        this.category = category;
+        categoryButton.textProperty().set(name);
     }
 
     @FXML
     protected void onClick(Event event) {
-        System.out.print("wtf");
-        parentController.showCategory(category);
+        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.PRODUCTS_CATEGORY, category));
     }
 }
