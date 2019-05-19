@@ -7,18 +7,15 @@ import se.chalmers.cse.dat216.project.ProductCategory;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Backend {
 
     private static Map<Category, List<Product>> categoryListMap = new HashMap<>();
 
     private static IMatDataHandler dataHandler = IMatDataHandler.getInstance();
-    
-    public static List<Product> searchProducts(String s){
+
+    public static List<Product> searchProducts(String s) {
         return dataHandler.findProducts(s);
     }
 
@@ -50,7 +47,7 @@ public class Backend {
             }
         }
 
-        return (int)Math.round(amount);
+        return (int) Math.round(amount);
     }
 
     public static List<Pair<Category, String>> getCategories() {
@@ -65,6 +62,10 @@ public class Backend {
         return categories;
     }
 
+    private static void addCategoryProductsToList(List<Product> list, ProductCategory category) {
+        list.addAll(dataHandler.getProducts(category));
+    }
+
     public static List<Product> getCategoryProducts(Category category) {
         switch (category) {
             case MEAT_FISH: {
@@ -72,8 +73,9 @@ public class Backend {
                     return categoryListMap.get(Category.MEAT_FISH);
                 }
                 List<Product> products = new ArrayList<>();
-                products.addAll(dataHandler.getProducts(ProductCategory.MEAT));
-                products.addAll(dataHandler.getProducts(ProductCategory.FISH));
+                addCategoryProductsToList(products, ProductCategory.MEAT);
+                addCategoryProductsToList(products, ProductCategory.FISH);
+                products.sort(Comparator.comparing(Product::getName));
                 categoryListMap.put(Category.MEAT_FISH, products);
                 return products;
             }
@@ -83,11 +85,12 @@ public class Backend {
                     return categoryListMap.get(Category.FRUIT_BERRIES);
                 }
                 List<Product> products = new ArrayList<>();
-                products.addAll(dataHandler.getProducts(ProductCategory.BERRY));
-                products.addAll(dataHandler.getProducts(ProductCategory.CITRUS_FRUIT));
-                products.addAll(dataHandler.getProducts(ProductCategory.EXOTIC_FRUIT));
-                products.addAll(dataHandler.getProducts(ProductCategory.MELONS));
-                products.addAll(dataHandler.getProducts(ProductCategory.FRUIT));
+                addCategoryProductsToList(products, ProductCategory.BERRY);
+                addCategoryProductsToList(products, ProductCategory.CITRUS_FRUIT);
+                addCategoryProductsToList(products, ProductCategory.EXOTIC_FRUIT);
+                addCategoryProductsToList(products, ProductCategory.MELONS);
+                addCategoryProductsToList(products, ProductCategory.FRUIT);
+                products.sort(Comparator.comparing(Product::getName));
                 categoryListMap.put(Category.FRUIT_BERRIES, products);
                 return products;
             }
@@ -97,10 +100,11 @@ public class Backend {
                     return categoryListMap.get(Category.VEGETABLES);
                 }
                 List<Product> products = new ArrayList<>();
-                products.addAll(dataHandler.getProducts(ProductCategory.VEGETABLE_FRUIT));
-                products.addAll(dataHandler.getProducts(ProductCategory.CABBAGE));
-                products.addAll(dataHandler.getProducts(ProductCategory.ROOT_VEGETABLE));
-                products.addAll(dataHandler.getProducts(ProductCategory.POD));
+                addCategoryProductsToList(products, ProductCategory.VEGETABLE_FRUIT);
+                addCategoryProductsToList(products, ProductCategory.CABBAGE);
+                addCategoryProductsToList(products, ProductCategory.ROOT_VEGETABLE);
+                addCategoryProductsToList(products, ProductCategory.POD);
+                products.sort(Comparator.comparing(Product::getName));
                 categoryListMap.put(Category.VEGETABLES, products);
                 return products;
             }
@@ -110,8 +114,9 @@ public class Backend {
                     return categoryListMap.get(Category.DRINKS);
                 }
                 List<Product> products = new ArrayList<>();
-                products.addAll(dataHandler.getProducts(ProductCategory.HOT_DRINKS));
-                products.addAll(dataHandler.getProducts(ProductCategory.COLD_DRINKS));
+                addCategoryProductsToList(products, ProductCategory.HOT_DRINKS);
+                addCategoryProductsToList(products, ProductCategory.COLD_DRINKS);
+                products.sort(Comparator.comparing(Product::getName));
                 categoryListMap.put(Category.DRINKS, products);
                 return products;
             }
@@ -121,7 +126,8 @@ public class Backend {
                     return categoryListMap.get(Category.DAIRIES);
                 }
                 List<Product> products = new ArrayList<>();
-                products.addAll(dataHandler.getProducts(ProductCategory.DAIRIES));
+                addCategoryProductsToList(products, ProductCategory.DAIRIES);
+                products.sort(Comparator.comparing(Product::getName));
                 categoryListMap.put(Category.DAIRIES, products);
                 return products;
             }
@@ -131,7 +137,8 @@ public class Backend {
                     return categoryListMap.get(Category.BREAD);
                 }
                 List<Product> products = new ArrayList<>();
-                products.addAll(dataHandler.getProducts(ProductCategory.BREAD));
+                addCategoryProductsToList(products, ProductCategory.BREAD);
+                products.sort(Comparator.comparing(Product::getName));
                 categoryListMap.put(Category.BREAD, products);
                 return products;
             }
@@ -141,11 +148,12 @@ public class Backend {
                     return categoryListMap.get(Category.DRY_STUFFS);
                 }
                 List<Product> products = new ArrayList<>();
-                products.addAll(dataHandler.getProducts(ProductCategory.FLOUR_SUGAR_SALT));
-                products.addAll(dataHandler.getProducts(ProductCategory.PASTA));
-                products.addAll(dataHandler.getProducts(ProductCategory.POTATO_RICE));
-                products.addAll(dataHandler.getProducts(ProductCategory.NUTS_AND_SEEDS));
-                products.addAll(dataHandler.getProducts(ProductCategory.HERB));
+                addCategoryProductsToList(products, ProductCategory.FLOUR_SUGAR_SALT);
+                addCategoryProductsToList(products, ProductCategory.PASTA);
+                addCategoryProductsToList(products, ProductCategory.POTATO_RICE);
+                addCategoryProductsToList(products, ProductCategory.NUTS_AND_SEEDS);
+                addCategoryProductsToList(products, ProductCategory.HERB);
+                products.sort(Comparator.comparing(Product::getName));
                 categoryListMap.put(Category.DRY_STUFFS, products);
                 return products;
             }
