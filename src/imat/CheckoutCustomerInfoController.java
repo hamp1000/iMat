@@ -3,6 +3,8 @@ package imat;
 import imat.events.NavigationEvent;
 import imat.events.NavigationEventObserver;
 import imat.events.NavigationEventService;
+import imat.events.NavigationRoute;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
@@ -33,5 +35,14 @@ public class CheckoutCustomerInfoController extends AnchorPane implements Naviga
                 break;
             }
         }
+    }
+
+    @FXML
+    private void navigateBack() {
+        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.CHECKOUT_CART, null));
+    }
+
+    @FXML private void navigateNext() {
+        NavigationEventService.broadcast(new NavigationEvent(NavigationRoute.CHECKOUT_ORDER_CONFIRMATION, null));
     }
 }

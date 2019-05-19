@@ -163,5 +163,23 @@ public class Backend {
         }
     }
 
+    public static List<ShoppingItem> getShoppingCartItems() {
+        Map<Product, Integer> productsMap = new LinkedHashMap<>();
 
+        for (ShoppingItem item : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
+            if (productsMap.containsKey(item.getProduct())) {
+                productsMap.put(item.getProduct(), productsMap.get(item.getProduct()) + 1);
+            } else {
+                productsMap.put(item.getProduct(), 1);
+            }
+        }
+
+        List<ShoppingItem> shoppingItems = new ArrayList<>();
+
+        for (Map.Entry<Product, Integer> entry : productsMap.entrySet()) {
+            shoppingItems.add(new ShoppingItem(entry.getKey(), entry.getValue()));
+        }
+
+        return shoppingItems;
+    }
 }

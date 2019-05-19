@@ -11,6 +11,7 @@ import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ShoppingCartController extends AnchorPane implements ShoppingCartListener {
@@ -39,21 +40,12 @@ public class ShoppingCartController extends AnchorPane implements ShoppingCartLi
     }
 
     private void updateShoppingCartItems() {
-        Map<Product, Integer> items = new LinkedHashMap<>();
-
-        for (ShoppingItem item : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
-            if (items.containsKey(item.getProduct())) {
-                items.put(item.getProduct(), new Integer(items.get(item.getProduct()) + 1));
-            } else {
-                items.put(item.getProduct(), new Integer(1));
-            }
-        }
+        List<ShoppingItem> items = Backend.getShoppingCartItems();
 
         shoppingItemsVBox.getChildren().clear();
 
-        for (Map.Entry<Product, Integer> entry : items.entrySet()) {
-
-            shoppingItemsVBox.getChildren().add(new ShoppingCartItemController(entry.getKey(), entry.getValue()));
+        for (ShoppingItem item : items) {
+            shoppingItemsVBox.getChildren().add(new ShoppingCartItemController(item.getProduct(), (int)item.getAmount()));
         }
     }
 

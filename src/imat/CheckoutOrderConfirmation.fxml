@@ -16,7 +16,7 @@
             <Font size="44.0" />
          </font>
       </Label>
-      <Button layoutX="756.0" layoutY="438.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="262.0" text="Fortsätt handla">
+      <Button layoutX="756.0" layoutY="438.0" mnemonicParsing="false" onMouseClicked="#navigateHome" prefHeight="69.0" prefWidth="262.0" text="Fortsätt handla">
          <font>
             <Font size="32.0" />
          </font>
@@ -37,12 +37,12 @@
             <Font size="50.0" />
          </font>
       </Text>
-      <Button layoutX="274.0" layoutY="438.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="262.0" text="Se kvitto">
+      <Button layoutX="274.0" layoutY="438.0" mnemonicParsing="false" onMouseClicked="#navigateReceipt" prefHeight="69.0" prefWidth="262.0" text="Se kvitto">
          <font>
             <Font size="32.0" />
          </font>
       </Button>
-      <Text layoutX="514.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="du handla för totalt: XXX">
+      <Text fx:id="amountTextLabel" layoutX="514.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="du handla för totalt: XXX">
          <font>
             <Font size="24.0" />
          </font>

@@ -92,6 +92,7 @@ public class CategoryContentBasketController extends AnchorPane implements Navig
             }
             case RECEIPTS: {
                 this.toFront();
+                receiptList.updateList();
                 receiptList.toFront();
                 contentLabel.setText("Orderhistorik");
                 break;

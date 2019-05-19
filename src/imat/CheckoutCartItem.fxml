@@ -13,12 +13,12 @@
             <Image url="@resources/error.png" />
          </image>
       </ImageView>
-      <Label layoutX="102.0" layoutY="4.0" text="Produkt namn">
+      <Label fx:id="productNameLabel" layoutX="102.0" layoutY="4.0" text="Produkt namn">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Label layoutX="361.0" layoutY="4.0" text="Total pris">
+      <Label fx:id="totalCostLabel" layoutX="361.0" layoutY="4.0" text="Total pris">
          <font>
             <Font size="28.0" />
          </font>
@@ -28,7 +28,7 @@
             <Image url="@resources/minus.png" />
          </image>
       </ImageView>
-      <Label layoutX="591.0" layoutY="3.0" text="X">
+      <Label fx:id="amountLabel" layoutX="591.0" layoutY="3.0" text="X">
          <font>
             <Font size="29.0" />
          </font>
