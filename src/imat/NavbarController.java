@@ -30,6 +30,8 @@ public class NavbarController extends AnchorPane {
         }
     }
 
+
+
     @FXML
     private void searchItem() {
         NavigationEventService.push(new NavigationEvent(NavigationRoute.PRODUCTS_SEARCH, searchBar.getText()));

@@ -51,7 +51,5 @@
          </font>
       </Label>
       <Button layoutX="648.0" layoutY="27.0" mnemonicParsing="false" onAction="#searchItem" prefHeight="47.0" prefWidth="101.0" text="Sök" />
-      <Button layoutX="160.0" layoutY="8.0" mnemonicParsing="false" onAction="#testOrder" text="Button" />
-      <Button layoutX="160.0" layoutY="60.0" mnemonicParsing="false" onAction="#testOrder2" text="Button" />
    </children>
 </fx:root>
