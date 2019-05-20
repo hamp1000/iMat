@@ -46,7 +46,7 @@
       </ImageView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="229.0" text="Label">
          <font>
-            <Font size="20.0" />
+            <Font size="19.0" />
          </font>
       </Label>
    </children>
