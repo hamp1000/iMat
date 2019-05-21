@@ -20,19 +20,24 @@ public class ProductItemController extends AnchorPane {
     private static Image notFavoriteImage = null;
 
     @FXML
-    Text productName;
-
-
-    @FXML
-    ImageView productImage;
+    private Label productName;
 
     @FXML
-    ImageView favoriteImageView;
+    private Label priceLabel;
 
     @FXML
-    Label amountLabel;
+    private Label unitLabel;
 
-    Product product;
+    @FXML
+    private ImageView productImage;
+
+    @FXML
+    private ImageView favoriteImageView;
+
+    @FXML
+    private Label amountLabel;
+
+    private Product product;
 
     public ProductItemController(Product product) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Product.fxml"));
@@ -55,6 +60,8 @@ public class ProductItemController extends AnchorPane {
 
         this.productName.setText(product.getName());
         this.product = product;
+        this.priceLabel.setText(Double.toString(product.getPrice())+ " " + product.getUnit());
+   //     this.unitLabel.setText(product.getUnit());
 
         if (dataHandler.isFavorite(this.product)) {
             favorite();

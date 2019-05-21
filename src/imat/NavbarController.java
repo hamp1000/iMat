@@ -7,8 +7,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class NavbarController extends AnchorPane {
     @FXML
@@ -25,6 +29,8 @@ public class NavbarController extends AnchorPane {
             throw new RuntimeException(exception);
         }
     }
+
+
 
     @FXML
     private void searchItem() {

@@ -12,13 +12,13 @@ import java.text.SimpleDateFormat;
 
 public class ReceiptListItemController extends AnchorPane {
     @FXML
-    Label itemLabel;
+    private Label itemLabel;
 
     @FXML
-    Label costLabel;
+    private Label costLabel;
 
     @FXML
-    Label dateLabel;
+    private Label dateLabel;
 
     ReceiptListItemController(Order order) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ReceiptListItem.fxml"));
@@ -40,7 +40,7 @@ public class ReceiptListItemController extends AnchorPane {
             totalCost += item.getTotal();
         }
 
-        itemLabel.setText(Integer.toString(itemCount));
-        costLabel.setText(Integer.toString(totalCost));
+        itemLabel.setText(Integer.toString(itemCount)+" varor");
+        costLabel.setText(Integer.toString(totalCost) + " kr");
     }
 }

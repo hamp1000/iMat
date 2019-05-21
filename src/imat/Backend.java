@@ -1,15 +1,15 @@
 package imat;
 
 import javafx.util.Pair;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ProductCategory;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.*;
 
 
 import java.util.*;
 
 public class Backend {
+
+
+
 
     private static Map<Category, List<Product>> categoryListMap = new HashMap<>();
 

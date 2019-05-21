@@ -4,6 +4,8 @@
       <root url="jar://$PROJECT_DIR$/lib/projectbackend.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/projectbackend.jar!/" />
+    </SOURCES>
   </library>
 </component>
