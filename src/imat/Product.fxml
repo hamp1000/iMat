@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="255.0" style="-fx-border-color: #DCDCDC; -fx-border-width: 1.5px;" stylesheets="@shadows.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="255.0" style="-fx-border-color: #DCDCDC; -fx-border-width: 1.5px;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   
    <children>
-      <Rectangle arcHeight="1.0" arcWidth="1.0" fill="WHITE" height="49.0" layoutX="27.0" layoutY="273.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Pane layoutX="-2.0" layoutY="-2.0" prefHeight="356.0" prefWidth="260.0" style="-fx-background-color: white;" styleClass="productShadow" stylesheets="@shadows.css" />
+      <Rectangle arcHeight="1.0" arcWidth="1.0" fill="WHITE" height="49.0" layoutX="27.0" layoutY="273.0" opacity="0.4" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" width="200.0" />
       <ImageView fx:id="productImage" fitHeight="170.0" fitWidth="227.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
 
-      <Label fx:id="productName" alignment="CENTER" layoutX="27.0" layoutY="195.0" prefHeight="49.0" prefWidth="200.0" text="blandfärs" textAlignment="CENTER">
+      <Label fx:id="productName" alignment="CENTER" layoutX="27.0" layoutY="180.0" prefHeight="49.0" prefWidth="200.0" text="blandfärs" textAlignment="CENTER" textFill="#4d4c4c">
         
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Label>
       <Label fx:id="amountLabel" alignment="CENTER" layoutX="85.0" layoutY="273.0" prefHeight="49.0" prefWidth="83.0" style="-fx-border-width: 1px; -fx-border-color: black;" text="7" textAlignment="CENTER">
@@ -24,20 +27,29 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="181.0" layoutY="281.0" onMouseClicked="#increaseAmount" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="177.0" layoutY="277.0" onMouseClicked="#increaseAmount" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/plus.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="42.0" layoutY="282.0" onMouseClicked="#decreaseAmount" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="36.0" layoutY="277.0" onMouseClicked="#decreaseAmount" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/minus.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
-      <ImageView fx:id="favoriteImageView" fitHeight="32.0" fitWidth="53.0" layoutX="26.0" layoutY="223.0" onMouseClicked="#toggleFavorite" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="favoriteImageView" fitHeight="32.0" fitWidth="32.0" layoutX="28.0" layoutY="233.0" onMouseClicked="#toggleFavorite" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/notFavorite.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <Label fx:id="priceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="71.0" layoutY="230.0" prefHeight="49.0" prefWidth="115.0" text="80 kr/styck" textAlignment="RIGHT" textFill="#7c7c7c">
          <font>

@@ -47,7 +47,7 @@ public class CategoryContentBasketController extends AnchorPane implements Navig
         help = new HelpController();
         receiptList = new ReceiptListController();
 
-        mainGridPane.add(categoryList, 0, 1);
+        mainGridPane.add(categoryList, 0, 0, 1, 2);
         mainGridPane.add(shoppingCart, 2, 1);
 
         contentStackPane.getChildren().add(productList);
