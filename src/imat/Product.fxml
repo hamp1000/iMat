@@ -7,33 +7,41 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
+
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="255.0" style="-fx-border-color: #DCDCDC; -fx-border-width: 2px;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  
    <children>
-      <Rectangle arcHeight="1.0" arcWidth="1.0" fill="WHITE" height="49.0" layoutX="28.0" layoutY="281.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="1.0" arcWidth="1.0" fill="WHITE" height="49.0" layoutX="27.0" layoutY="264.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="200.0" />
       <ImageView fx:id="productImage" fitHeight="170.0" fitWidth="227.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <image>
             <Image url="@resources/imat/images/product_1.jpg" />
          </image></ImageView>
+
       <Label fx:id="productName" alignment="CENTER" layoutX="28.0" layoutY="196.0" prefHeight="49.0" prefWidth="200.0" text="blandfärs" textAlignment="CENTER" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="196.0">
+        
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="amountLabel" alignment="CENTER" layoutX="86.0" layoutY="281.0" prefHeight="49.0" prefWidth="83.0" style="-fx-border-width: 1px; -fx-border-color: black;" text="7" textAlignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="86.0">
+      <Label fx:id="amountLabel" alignment="CENTER" layoutX="85.0" layoutY="264.0" prefHeight="49.0" prefWidth="83.0" style="-fx-border-width: 1px; -fx-border-color: black;" text="7" textAlignment="CENTER">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="182.0" layoutY="289.0" onMouseClicked="#increaseAmount" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="41.0">
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="181.0" layoutY="272.0" onMouseClicked="#increaseAmount" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/plus.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="290.0" onMouseClicked="#decreaseAmount" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="42.0" layoutY="273.0" onMouseClicked="#decreaseAmount" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/minus.png" />
          </image>
       </ImageView>
+      <Text fx:id="productName" layoutX="109.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
       <ImageView fx:id="favoriteImageView" fitHeight="32.0" fitWidth="53.0" layoutX="41.0" layoutY="239.0" onMouseClicked="#toggleFavorite" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/notFavorite.png" />
@@ -42,6 +50,7 @@
       <Label fx:id="priceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="71.0" layoutY="230.0" prefHeight="49.0" prefWidth="115.0" text="80 kr/styck" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
+
          </font>
       </Label>
    </children>
