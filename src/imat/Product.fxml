@@ -43,7 +43,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="favoriteImageView" fitHeight="32.0" fitWidth="32.0" layoutX="28.0" layoutY="233.0" onMouseClicked="#toggleFavorite" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="favoriteImageView" accessibleHelp="Lägg till i Favoriter" accessibleText="Lägg till i Favoriter" fitHeight="32.0" fitWidth="32.0" layoutX="28.0" layoutY="233.0" onMouseClicked="#toggleFavorite" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/notFavorite.png" />
          </image>
