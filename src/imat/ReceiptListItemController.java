@@ -12,13 +12,13 @@ import java.text.SimpleDateFormat;
 
 public class ReceiptListItemController extends AnchorPane {
     @FXML
-    Label itemLabel;
+    private Label itemLabel;
 
     @FXML
-    Label costLabel;
+    private Label costLabel;
 
     @FXML
-    Label dateLabel;
+    private Label dateLabel;
 
     ReceiptListItemController(Order order) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ReceiptListItem.fxml"));

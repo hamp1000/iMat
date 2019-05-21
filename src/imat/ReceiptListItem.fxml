@@ -5,24 +5,34 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="770.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="790.0" style="-fx-border-width: 1.5px; -fx-border-color: grey;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="dateLabel" layoutX="72.0" layoutY="5.0" text="Datum" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="itemLabel" layoutX="339.0" layoutY="7.0" text="XX Varor" textAlignment="CENTER">
+      <Label fx:id="itemLabel" layoutX="363.0" layoutY="7.0" text="XX " textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="costLabel" layoutX="624.0" layoutY="7.0" text="XX KR" textAlignment="CENTER">
+      <Label fx:id="costLabel" layoutX="626.0" layoutY="5.0" text="XX" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Line endX="5.0" endY="22.0" layoutX="223.0" layoutY="25.0" startX="5.0" startY="-24.0" />
-      <Line endX="5.0" endY="22.0" layoutX="536.0" layoutY="26.0" startX="5.0" startY="-26.0" />
+      <Line endX="5.0" endY="20.0" layoutX="223.0" layoutY="25.0" startX="5.0" startY="-24.0" stroke="#868686" />
+      <Line endX="5.0" endY="19.0" layoutX="536.0" layoutY="26.0" startX="5.0" startY="-26.0" stroke="#868686" />
+      <Label layoutX="396.0" layoutY="7.0" prefHeight="27.0" prefWidth="64.0" text="Varor">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="656.0" layoutY="5.0" text="KR" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </fx:root>
