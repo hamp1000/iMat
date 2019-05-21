@@ -8,7 +8,7 @@
    <children>
       <ScrollPane fitToWidth="true" hbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <FlowPane fx:id="productsFlowPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+            <FlowPane fx:id="productsFlowPane" hgap="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="16.0" />
          </content>
       </ScrollPane>
    </children>
