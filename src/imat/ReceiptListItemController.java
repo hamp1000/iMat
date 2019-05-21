@@ -40,7 +40,7 @@ public class ReceiptListItemController extends AnchorPane {
             totalCost += item.getTotal();
         }
 
-        itemLabel.setText(Integer.toString(itemCount));
-        costLabel.setText(Integer.toString(totalCost));
+        itemLabel.setText(Integer.toString(itemCount)+" varor");
+        costLabel.setText(Integer.toString(totalCost) + " kr");
     }
 }
