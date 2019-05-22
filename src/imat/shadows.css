@@ -1,16 +1,15 @@
 .productShadow {
-    -fx-effect:dropshadow(three-pass-box, lightgrey, 1.5, 4, 2, 2);
-}
-#margin{
-}
-.buttonfix{
-    -fx-border-style:solid;
-    -fx-border-color:#909090;
+    -fx-effect: dropshadow(three-pass-box, lightgrey, 1.5, 4, 2, 2);
 }
 
-.button:focused{
+.category-button.category-button-active {
     -fx-background-color: rgb(0, 150, 51);
 }
-.button:hover{
+
+.category-button {
+    -fx-background-color: rgb(228, 255, 228);
+}
+
+.category-button:hover {
     -fx-background-color: rgb(0, 150, 51);
 }
