@@ -74,7 +74,7 @@ public class ProductItemController extends AnchorPane implements ShoppingCartLis
             unfavorite();
         }
 
-        productImage.setImage(IMatDataHandler.getInstance().getFXImage(product));
+        productImage.setImage(IMatDataHandler.getInstance().getFXImage(product, 215, 170));
 
         IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(this);
 
