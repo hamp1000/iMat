@@ -36,7 +36,7 @@ public class CheckoutCartItemController extends AnchorPane {
         this.product = product;
 
         productNameLabel.setText(product.getName());
-        amountLabel.setText(Integer.toString(amount));
+        //amountLabel.setText(Integer.toString(amount));
         totalCostLabel.setText(String.format("%.2f",product.getPrice() * amount));
     }
 

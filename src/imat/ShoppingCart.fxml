@@ -29,7 +29,7 @@
           <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" vgrow="NEVER" />
         </rowConstraints>
          <children>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0">
+            <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                <content>
                   <VBox fx:id="shoppingItemsVBox" />
                </content>
