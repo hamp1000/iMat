@@ -1,0 +1,11 @@
+.buy-button {
+    -fx-background-color: #94ce94;
+}
+
+.buy-module {
+    -fx-border-color: #94ce94;
+}
+
+.buy-module .button {
+    -fx-background-color: #94ce94;
+}

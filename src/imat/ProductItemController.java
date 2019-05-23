@@ -6,7 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 
@@ -40,7 +39,7 @@ public class ProductItemController extends AnchorPane {
     private Product product;
 
     public ProductItemController(Product product) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Product.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
