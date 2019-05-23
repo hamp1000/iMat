@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane layoutX="33.0" layoutY="63.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -55,17 +55,17 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <Label layoutX="79.0" layoutY="11.0" prefHeight="31.0" prefWidth="63.0" text="Totalt:" textFill="#797979" AnchorPane.topAnchor="11.0">
+                  <Label layoutX="254.0" layoutY="13.0" prefHeight="31.0" prefWidth="63.0" text="Totalt:" textFill="#797979" AnchorPane.topAnchor="13.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="totalPriceLabel" layoutX="135.0" layoutY="14.0" text="20,5 Kr" AnchorPane.topAnchor="14.0">
+                  <Label fx:id="totalPriceLabel" layoutX="329.0" layoutY="15.0" text="20,5 Kr" AnchorPane.topAnchor="15.0">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="5.0" layoutX="11.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#clearCart" prefHeight="26.0" prefWidth="27.0" style="-fx-background-color: #ff2d2dbb;" text="Töm" textFill="#c38c8cba">
+                  <Button contentDisplay="GRAPHIC_ONLY" graphicTextGap="5.0" layoutX="11.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#clearCart" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: #ff2d2dbb;" text="Töm" textFill="#c38c8cba">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -80,6 +80,11 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <Label layoutX="57.0" layoutY="9.0" prefHeight="31.0" prefWidth="63.0" text="Töm">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>
