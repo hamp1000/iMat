@@ -13,6 +13,11 @@ import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 public class CheckoutShippingInfoController extends AnchorPane implements NavigationEventObserver {
     @FXML
@@ -76,6 +81,20 @@ public class CheckoutShippingInfoController extends AnchorPane implements Naviga
         });
 
         shippingTime.getItems().addAll("80:00-11:00", "11:00-14:00", "14:00-17:00");
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
+
+        List<String> dates = new ArrayList<>();
+
+        while (dates.size() < 5) {
+            c.add(Calendar.DATE, 1);
+            if (c.get(Calendar.DAY_OF_WEEK) != 1 && c.get(Calendar.DAY_OF_WEEK) != 7) {
+                dates.add(sdf.format(c.getTime()));
+            }
+        }
+        shippingDate.getItems().addAll(dates);
     }
 
     @Override
