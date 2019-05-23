@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.layout.*;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.net.URL;
 import java.util.*;

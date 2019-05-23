@@ -1,0 +1,38 @@
+.buy-button {
+    -fx-background-color: #94ce94;
+    -fx-background-radius: 10px;
+}
+
+.buy-button:hover {
+    -fx-background-color: #b7deb7;
+}
+
+.buy-button:pressed {
+    -fx-background-color: #71be71;
+}
+
+.buy-module .button {
+    -fx-background-color: #94ce94;
+    -fx-border-style: none;
+    -fx-border-width: 0;
+}
+
+.buy-module .button:hover {
+    -fx-background-color: #b7deb7;
+}
+
+.buy-module .button:pressed {
+    -fx-background-color: #71be71;
+}
+
+.buy-module .button.button-left {
+    -fx-background-radius: 10px 0 0 10px;
+}
+
+.buy-module .button.button-right {
+    -fx-background-radius: 0 10px 10px 0;
+}
+
+.buy-module .text-field {
+    -fx-border-color: #94ce94;
+}

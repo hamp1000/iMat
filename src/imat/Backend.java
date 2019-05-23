@@ -22,17 +22,24 @@ public class Backend {
     }
 
     public static void addProductToCart(Product product) {
-        boolean foundProductInCart = false;
         for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
             if (item.getProduct().getProductId() == product.getProductId()) {
-                foundProductInCart = true;
                 item.setAmount(item.getAmount() + 1);
                 dataHandler.getShoppingCart().fireShoppingCartChanged(item, true);
+                return;
             }
         }
 
-        if (!foundProductInCart) {
-            dataHandler.getShoppingCart().addProduct(product);
+        dataHandler.getShoppingCart().addProduct(product);
+    }
+
+    public static void setProductAmount(Product product, int amount) {
+        for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
+            if (item.getProduct().getProductId() == product.getProductId()) {
+                item.setAmount(amount);
+                dataHandler.getShoppingCart().fireShoppingCartChanged(item, true);
+                return;
+            }
         }
     }
 
@@ -42,8 +49,11 @@ public class Backend {
                 int amount = (int) Math.round(item.getAmount());
                 if (amount > 1) {
                     item.setAmount(item.getAmount() - 1);
+                    dataHandler.getShoppingCart().fireShoppingCartChanged(item, false);
+                    return;
                 } else {
                     dataHandler.getShoppingCart().removeItem(item);
+                    return;
                 }
             }
         }
@@ -53,6 +63,7 @@ public class Backend {
         for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
             if (item.getProduct().getProductId() == product.getProductId()) {
                 dataHandler.getShoppingCart().removeItem(item);
+                return;
             }
         }
     }
@@ -67,11 +78,11 @@ public class Backend {
         double amount = 0;
         for (ShoppingItem item : cartItems) {
             if (item.getProduct().getProductId() == product.getProductId()) {
-                amount += item.getAmount();
+                return (int) Math.round(item.getAmount());
             }
         }
 
-        return (int) Math.round(amount);
+        return 0;
     }
 
     public static List<Pair<Category, String>> getCategories() {
