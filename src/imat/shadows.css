@@ -1,7 +1,11 @@
 .productShadow {
-    -fx-effect:dropshadow(three-pass-box, lightgrey, 1.5, 4, 2, 2);
+    -fx-effect: dropshadow(three-pass-box, lightgrey, 1.5, 4, 2, 2);
+
 }
-#margin{
+
+.category-button.category-button-active {
+    -fx-background-color: rgb(0, 150, 51);
+    -fx-text-fill: white;
 }
 .buttonfix{
     -fx-border-style:solid;
@@ -10,7 +14,19 @@
 
 .button:focused{
     -fx-background-color: rgb(0, 150, 51);
+    -fx-text-fill: white;
 }
-.button:hover{
+
+.back-button{
+    -fx-background-color: rgba(192, 192, 192, 0.37);
+}
+.next-button{
+    -fx-background-color: #43ef43;
+}
+.next-button:hover{
     -fx-background-color: rgb(0, 150, 51);
+    -fx-text-fill: white;
+}
+.back-button:hover{
+    -fx-background-color: rgba(175, 175, 175, 0.37);
 }
