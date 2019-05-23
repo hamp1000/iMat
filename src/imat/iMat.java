@@ -25,6 +25,7 @@ public class iMat extends Application {
         stage.show();
     }
 
+
     @Override
     public void stop() throws Exception {
         super.stop();
