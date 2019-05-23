@@ -2,18 +2,21 @@ package imat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCartListener;
 
 import java.io.IOException;
 
-public class ProductItemController extends AnchorPane {
-
-    IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+public class ProductItemController extends AnchorPane implements ShoppingCartListener {
 
     private static Image favoriteImage = null;
     private static Image notFavoriteImage = null;
@@ -25,16 +28,19 @@ public class ProductItemController extends AnchorPane {
     private Label priceLabel;
 
     @FXML
-    private Label unitLabel;
-
-    @FXML
     private ImageView productImage;
 
     @FXML
     private ImageView favoriteImageView;
 
     @FXML
-    private Label amountLabel;
+    private TextField amountField;
+
+    @FXML
+    private Button buyButton;
+
+    @FXML
+    private GridPane buyAmountModule;
 
     private Product product;
 
@@ -54,22 +60,56 @@ public class ProductItemController extends AnchorPane {
         }
         if (notFavoriteImage == null) {
             notFavoriteImage = Utils.makeResourceImage(getClass().getClassLoader(), "notFavorite.png");
-
         }
 
-        this.productName.setText(product.getName());
         this.product = product;
-        this.priceLabel.setText(Double.toString(product.getPrice())+ " " + product.getUnit());
-   //     this.unitLabel.setText(product.getUnit());
 
-        if (dataHandler.isFavorite(this.product)) {
+        productName.setText(product.getName());
+        priceLabel.setText(product.getPrice() + " " + product.getUnit());
+
+        if (IMatDataHandler.getInstance().isFavorite(this.product)) {
             favorite();
 
         } else {
             unfavorite();
         }
-        this.productImage.setImage(dataHandler.getFXImage(product));
-        updateProductAmount();
+
+        productImage.setImage(IMatDataHandler.getInstance().getFXImage(product));
+
+        IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(this);
+
+        amountField.textProperty().addListener((observable, oldValue, newValue) -> {
+                    while (true) {
+                        if (newValue.length() > 1 && newValue.charAt(0) == '0') {
+                            newValue = newValue.substring(1);
+                        } else {
+                            break;
+                        }
+                    }
+                    if (!newValue.matches("\\d*")) {
+                        newValue = newValue.replaceAll("[^\\d]", "");
+                    }
+                    if (newValue.length() > 0 && !newValue.equals("0")) {
+                        Backend.setProductAmount(product, Integer.parseInt(newValue));
+                        amountField.setText(newValue);
+                    }
+                }
+        );
+
+        amountField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (oldValue != newValue) {
+                if (!newValue) {
+                    if (amountField.getText().length() == 0) {
+                        amountField.setText("0");
+                        Backend.removeProductFromCart(product);
+                    } else {
+                        Backend.setProductAmount(product, Integer.parseInt(amountField.getText()));
+                    }
+                }
+            }
+        });
+
+        update();
     }
 
     void favorite() {
@@ -82,11 +122,11 @@ public class ProductItemController extends AnchorPane {
 
     @FXML
     public void toggleFavorite() {
-        if (dataHandler.isFavorite(product)) {
-            dataHandler.removeFavorite(product);
+        if (IMatDataHandler.getInstance().isFavorite(product)) {
+            IMatDataHandler.getInstance().removeFavorite(product);
             unfavorite();
         } else {
-            dataHandler.addFavorite(product);
+            IMatDataHandler.getInstance().addFavorite(product);
             favorite();
         }
     }
@@ -94,18 +134,29 @@ public class ProductItemController extends AnchorPane {
     @FXML
     public void increaseAmount() {
         Backend.addProductToCart(product);
-        updateProductAmount();
     }
 
 
     @FXML
     public void decreaseAmount() {
         Backend.removeProductFromCart(product);
-        updateProductAmount();
     }
 
-    private void updateProductAmount() {
-        amountLabel.setText(Integer.toString(Backend.getProductCartAmount(product)));
+    private void update() {
+        if (Backend.getProductCartAmount(product) > 0) {
+            buyAmountModule.toFront();
+            int amount = Backend.getProductCartAmount(product);
+            amountField.setText(Integer.toString(amount));
+        } else {
+            this.requestFocus();
+            buyButton.toFront();
+        }
     }
 
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        if (cartEvent.getShoppingItem().getProduct().getProductId() == product.getProductId()) {
+            update();
+        }
+    }
 }
