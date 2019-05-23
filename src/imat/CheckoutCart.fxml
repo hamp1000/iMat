@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="690" prefWidth="1280" style="-fx-background-color: #FFF;" styleClass="buttonfix" stylesheets="@shadows.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="690" prefWidth="1280" style="-fx-background-color: #FFF;" stylesheets="@shadows.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button layoutX="-1.0" layoutY="596.0" mnemonicParsing="false" onMouseClicked="#navigateBack" prefHeight="82.0" prefWidth="230.0" styleClass="back-button" stylesheets="@shadows.css" text="Tillbaka" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
          <font>
@@ -21,9 +21,9 @@
             <Font size="41.0" />
          </font>
       </Button>
-      <ImageView fitHeight="113.0" fitWidth="590.0" layoutX="352.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="100.0" fitWidth="810.0" layoutX="352.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="25.0">
          <image>
-            <Image url="@resources/wizard%20(on%20cart).png" />
+            <Image url="@resources/1a.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="1.0" layoutY="151.0" prefHeight="446.0" prefWidth="1290.0">

@@ -1,9 +1,18 @@
 package imat;
 
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
@@ -18,7 +27,7 @@ public class ShoppingCartItemController extends AnchorPane {
     @FXML
     Label productAmount;
 
-    public ShoppingCartItemController(ShoppingItem item) {
+    public ShoppingCartItemController(ShoppingItem item, boolean flash) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShoppingCartItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -33,6 +42,33 @@ public class ShoppingCartItemController extends AnchorPane {
 
         productName.setText(item.getProduct().getName());
         productAmount.setText(Integer.toString((int) Math.round(item.getAmount())));
+
+        if (flash) {
+
+            //**************************
+            //this animation changes the background color
+            //of the VBox from red with opacity=1
+            //to red with opacity=0
+            //**************************
+            AnchorPane self = this;
+
+            final Animation animation = new Transition() {
+
+                {
+                    setCycleDuration(Duration.millis(1000));
+                    setInterpolator(Interpolator.EASE_OUT);
+                }
+
+                @Override
+                protected void interpolate(double frac) {
+                    Color vColor = new Color(148.0 / 255.0, 206.0 / 255.0, 148.0 / 255.0, 1 - frac);
+                    self.setBackground(new Background(new BackgroundFill(vColor, CornerRadii.EMPTY, Insets.EMPTY)));
+
+                }
+            };
+            animation.play();
+
+        }
     }
 
     @FXML

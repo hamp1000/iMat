@@ -146,6 +146,7 @@ public class ProductItemController extends AnchorPane implements ShoppingCartLis
         if (Backend.getProductCartAmount(product) > 0) {
             buyAmountModule.toFront();
             int amount = Backend.getProductCartAmount(product);
+
             amountField.setText(Integer.toString(amount));
         } else {
             this.requestFocus();
@@ -155,7 +156,9 @@ public class ProductItemController extends AnchorPane implements ShoppingCartLis
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        if (cartEvent.getShoppingItem().getProduct().getProductId() == product.getProductId()) {
+        if (cartEvent.getShoppingItem() == null) {
+            update();
+        } else if (cartEvent.getShoppingItem().getProduct().getProductId() == product.getProductId()) {
             update();
         }
     }

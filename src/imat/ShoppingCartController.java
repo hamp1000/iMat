@@ -5,6 +5,7 @@ import imat.events.NavigationEventService;
 import imat.events.NavigationRoute;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -14,10 +15,16 @@ import java.io.IOException;
 
 public class ShoppingCartController extends AnchorPane implements ShoppingCartListener {
     @FXML
-    VBox shoppingItemsVBox;
+    private VBox shoppingItemsVBox;
 
     @FXML
-    Label totalPriceLabel;
+    private Label totalPriceLabel;
+
+    @FXML
+    private Button emptyButton;
+
+    @FXML
+    private Button checkoutButton;
 
     public ShoppingCartController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShoppingCart.fxml"));
@@ -32,19 +39,26 @@ public class ShoppingCartController extends AnchorPane implements ShoppingCartLi
 
         IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(this);
 
-        updateShoppingCart();
+        updateShoppingCart(null);
     }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        updateShoppingCart();
+        updateShoppingCart(cartEvent.getShoppingItem() == null ? null : cartEvent.getShoppingItem().getProduct());
     }
 
-    private void updateShoppingCart() {
+    private void updateShoppingCart(Product product) {
         shoppingItemsVBox.getChildren().clear();
 
-        for (ShoppingItem item : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
-            shoppingItemsVBox.getChildren().add(new ShoppingCartItemController(item));
+        if (IMatDataHandler.getInstance().getShoppingCart().getItems().size() == 0) {
+            emptyButton.disableProperty().setValue(true);
+            checkoutButton.disableProperty().setValue(true);
+        } else {
+            for (ShoppingItem item : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
+                shoppingItemsVBox.getChildren().add(new ShoppingCartItemController(item, product != null && item.getProduct().getProductId() == product.getProductId()));
+            }
+            emptyButton.disableProperty().setValue(false);
+            checkoutButton.disableProperty().setValue(false);
         }
 
         totalPriceLabel.setText(String.format("%.2f", IMatDataHandler.getInstance().getShoppingCart().getTotal()));
@@ -55,7 +69,8 @@ public class ShoppingCartController extends AnchorPane implements ShoppingCartLi
         NavigationEventService.push(new NavigationEvent(NavigationRoute.CHECKOUT_CART, null));
     }
 
-    @FXML private void clearCart() {
+    @FXML
+    private void clearCart() {
         Backend.emptyCart();
     }
 }

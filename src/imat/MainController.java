@@ -19,20 +19,15 @@ public class MainController implements Initializable {
     @FXML
     private StackPane mainStackPane;
 
-    private NavbarController navbar = new NavbarController();
-    private CategoryContentBasketController categoryContentBasket = new CategoryContentBasketController();
-    private CheckoutCartController checkoutCart = new CheckoutCartController();
-    private CheckoutCustomerInfoController checkoutCustomerInfo = new CheckoutCustomerInfoController();
-    private CheckoutOrderConfirmationController checkoutOrderConfirmation = new CheckoutOrderConfirmationController();
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        mainGridPane.add(navbar, 0, 0);
+        mainGridPane.add(new NavbarController(), 0, 0);
 
-        mainStackPane.getChildren().add(checkoutCart);
-        mainStackPane.getChildren().add(checkoutCustomerInfo);
-        mainStackPane.getChildren().add(checkoutOrderConfirmation);
-        mainStackPane.getChildren().add(categoryContentBasket);
+        mainStackPane.getChildren().add(new CheckoutCartController());
+        mainStackPane.getChildren().add(new CheckoutCustomerInfoController());
+        mainStackPane.getChildren().add(new CheckoutShippingInfoController());
+        mainStackPane.getChildren().add(new CheckoutOrderConfirmationController());
+        mainStackPane.getChildren().add(new CategoryContentBasketController());
 
         NavigationEventService.push(new NavigationEvent(NavigationRoute.HELP, null));
     }
