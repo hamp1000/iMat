@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -41,7 +42,7 @@ public class ShoppingCartItemController extends AnchorPane {
         this.item = item;
 
         productName.setText(item.getProduct().getName());
-        productAmount.setText(Integer.toString((int) Math.round(item.getAmount())));
+//        productAmount.setText(Integer.toString((int) Math.round(item.getAmount())));
 
         if (flash) {
 

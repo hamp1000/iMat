@@ -1,39 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="45" prefWidth="235" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root minHeight="-Infinity" prefHeight="70.0" prefWidth="233.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="158.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
-      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="7.0" layoutY="5.0" onMouseClicked="#removeProduct" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="203.0" layoutY="5.0" onMouseClicked="#removeProduct" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resources/error.png" />
+            <Image url="@resources/clear2.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
-      <Label fx:id="productName" layoutX="65.0" layoutY="6.0" prefHeight="34.0" prefWidth="102.0" text="Exempel">
+      <Label fx:id="productName" layoutX="12.0" layoutY="-1.0" prefHeight="34.0" prefWidth="204.0" text="Exempel">
          <font>
-            <Font size="20.0" />
+            <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="productAmount" layoutX="187.0" layoutY="7.0" text="X" textAlignment="CENTER">
+      <GridPane fx:id="buyAmountModule" layoutX="10.0" layoutY="22.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="100.0" styleClass="buy-module" stylesheets="@ProductItem.css">
+         <columnConstraints>
+            <ColumnConstraints fillWidth="false" hgrow="NEVER" />
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="43.0" prefWidth="43.0" />
+            <ColumnConstraints fillWidth="false" hgrow="NEVER" maxWidth="51.0" minWidth="33.0" prefWidth="51.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="NEVER" />
+         </rowConstraints>
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="28.0">
+               <children>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#decreaseAmount" prefHeight="40.0" prefWidth="40.0" styleClass="button-left" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="18.0" onMouseClicked="#decreaseAmount" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/minus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="43.0" GridPane.columnIndex="1">
+               <children>
+                  <TextField fx:id="amountField" alignment="CENTER" layoutX="-27.0" layoutY="2.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="51.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+               </children>
+            </AnchorPane>
+            <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="28.0" GridPane.columnIndex="2">
+               <children>
+                  <Button graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#increaseAmount" prefHeight="50.0" prefWidth="50.0" styleClass="button-right" textAlignment="CENTER" textFill="#cf1111f9" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="15.0" onMouseClicked="#increaseAmount" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+      <Label fx:id="productName1" layoutX="133.0" layoutY="34.0" prefHeight="34.0" prefWidth="102.0" text="Jmfr. Pris" textFill="#5e5e5e">
          <font>
-            <Font size="22.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="163.0" layoutY="14.0" onMouseClicked="#decreaseAmount" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@resources/back.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="206.0" layoutY="14.0" onMouseClicked="#increaseAmount" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-         <image>
-            <Image url="@resources/back.png" />
-         </image>
-      </ImageView>
+      <Line endX="223.5" endY="3.0000152587890625" layoutX="14.0" layoutY="67.0" startX="-8.707096099853516" startY="3.0" stroke="#868686" />
    </children>
 </fx:root>

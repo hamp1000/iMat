@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -20,6 +22,9 @@
          <font>
             <Font size="41.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <ImageView fitHeight="100.0" fitWidth="810.0" layoutX="352.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="25.0">
          <image>
@@ -28,13 +33,23 @@
       </ImageView>
       <AnchorPane layoutX="1.0" layoutY="151.0" prefHeight="446.0" prefWidth="1290.0">
          <children>
-            <ScrollPane hbarPolicy="NEVER" layoutX="260.0" layoutY="3.0" prefHeight="440.0" prefWidth="771.0">
+            <ScrollPane hbarPolicy="NEVER" layoutX="260.0" prefHeight="443.0" prefWidth="771.0">
                <content>
-                  <VBox fx:id="cartItemsVBox" prefHeight="200.0" prefWidth="100.0" />
+                  <VBox fx:id="cartItemsVBox" prefHeight="200.0" prefWidth="100.0" spacing="10.0" />
                </content>
             </ScrollPane>
          </children>
       </AnchorPane>
-      <Line endX="1180.0" endY="7.0" layoutX="102.0" layoutY="144.0" startX="-102.0" startY="7.0" />
+      <Line endX="1189.0" endY="7.0" layoutX="102.0" layoutY="144.0" startX="-101.0" startY="7.0" />
+      <Label layoutX="503.0" layoutY="607.0" prefHeight="62.0" prefWidth="136.0" text="Totala priset:" textFill="#515151">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="checkoutTotal" layoutX="643.0" layoutY="605.0" prefHeight="62.0" prefWidth="136.0" text="pris kr" textFill="#323232">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </fx:root>

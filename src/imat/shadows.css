@@ -1,5 +1,5 @@
 .productShadow {
-    -fx-effect: dropshadow(three-pass-box, lightgrey, 1.5, 4, 2, 2);
+    -fx-effect: dropshadow(three-pass-box, lightgrey, 1.5, 4, 2, 2) 1, 2, 4, 5;
 
 
 }
