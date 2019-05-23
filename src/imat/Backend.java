@@ -9,8 +9,6 @@ import java.util.*;
 public class Backend {
 
 
-
-
     private static Map<Category, List<Product>> categoryListMap = new HashMap<>();
 
     private static IMatDataHandler dataHandler = IMatDataHandler.getInstance();
@@ -24,34 +22,43 @@ public class Backend {
     }
 
     public static void addProductToCart(Product product) {
-        dataHandler.getShoppingCart().addProduct(product);
+        boolean foundProductInCart = false;
+        for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
+            if (item.getProduct().getProductId() == product.getProductId()) {
+                foundProductInCart = true;
+                item.setAmount(item.getAmount() + 1);
+                dataHandler.getShoppingCart().fireShoppingCartChanged(item, true);
+            }
+        }
+
+        if (!foundProductInCart) {
+            dataHandler.getShoppingCart().addProduct(product);
+        }
     }
 
     public static void removeProductFromCart(Product product) {
-        List<ShoppingItem> items = dataHandler.getShoppingCart().getItems();
-        for (int i = 0; i < items.size(); ++i) {
-            if (items.get(i).getProduct().getProductId() == product.getProductId()) {
-                dataHandler.getShoppingCart().removeItem(i);
-                break;
+        for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
+            if (item.getProduct().getProductId() == product.getProductId()) {
+                int amount = (int) Math.round(item.getAmount());
+                if (amount > 1) {
+                    item.setAmount(item.getAmount() - 1);
+                } else {
+                    dataHandler.getShoppingCart().removeItem(item);
+                }
             }
         }
     }
 
     public static void deleteProductFromCart(Product product) {
-        List<ShoppingItem> items = dataHandler.getShoppingCart().getItems();
-
-        int index = 0;
-        while (index < items.size()) {
-            if (items.get(index).getProduct().getProductId() == product.getProductId()) {
-                dataHandler.getShoppingCart().removeItem(index);
-            } else {
-                index++;
+        for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
+            if (item.getProduct().getProductId() == product.getProductId()) {
+                dataHandler.getShoppingCart().removeItem(item);
             }
         }
     }
 
     public static void emptyCart() {
-        dataHandler.getShoppingCart().getItems().clear();
+        dataHandler.getShoppingCart().clear();
     }
 
     public static int getProductCartAmount(Product product) {

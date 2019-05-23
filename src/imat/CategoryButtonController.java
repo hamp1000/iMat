@@ -21,7 +21,7 @@ public class CategoryButtonController extends AnchorPane {
     @FXML
     ImageView categoryImage;
 
-    public CategoryButtonController(Category category, String name) {
+    public CategoryButtonController(Category category, String name, boolean active) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CategoryButton.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -34,6 +34,10 @@ public class CategoryButtonController extends AnchorPane {
 
         this.category = category;
         categoryButton.textProperty().set(name);
+
+        if (active) {
+            categoryButton.getStyleClass().add("category-button-active");
+        }
     }
 
     @FXML

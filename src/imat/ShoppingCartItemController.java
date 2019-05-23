@@ -5,11 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
 public class ShoppingCartItemController extends AnchorPane {
-    private Product product;
+    private ShoppingItem item;
 
     @FXML
     Label productName;
@@ -17,7 +18,7 @@ public class ShoppingCartItemController extends AnchorPane {
     @FXML
     Label productAmount;
 
-    public ShoppingCartItemController(Product product, int amount) {
+    public ShoppingCartItemController(ShoppingItem item) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShoppingCartItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -28,21 +29,24 @@ public class ShoppingCartItemController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        this.product = product;
+        this.item = item;
 
-        productName.setText(product.getName());
-        productAmount.setText(Integer.toString(amount));
+        productName.setText(item.getProduct().getName());
+        productAmount.setText(Integer.toString((int) Math.round(item.getAmount())));
     }
 
-    @FXML private void removeProduct() {
-        Backend.deleteProductFromCart(product);
+    @FXML
+    private void removeProduct() {
+        Backend.deleteProductFromCart(item.getProduct());
     }
 
-    @FXML private void increaseAmount() {
-        Backend.addProductToCart(product);
+    @FXML
+    private void increaseAmount() {
+        Backend.addProductToCart(item.getProduct());
     }
 
-    @FXML private void decreaseAmount() {
-        Backend.removeProductFromCart(product);
+    @FXML
+    private void decreaseAmount() {
+        Backend.removeProductFromCart(item.getProduct());
     }
 }

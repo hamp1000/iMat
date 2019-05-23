@@ -5,16 +5,19 @@ import imat.events.NavigationEventService;
 import imat.events.NavigationRoute;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
-import java.util.List;
 
 public class ShoppingCartController extends AnchorPane implements ShoppingCartListener {
     @FXML
     VBox shoppingItemsVBox;
+
+    @FXML
+    Label totalPriceLabel;
 
     public ShoppingCartController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShoppingCart.fxml"));
@@ -29,26 +32,30 @@ public class ShoppingCartController extends AnchorPane implements ShoppingCartLi
 
         IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(this);
 
-        updateShoppingCartItems();
+        updateShoppingCart();
     }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        updateShoppingCartItems();
+        updateShoppingCart();
     }
 
-    private void updateShoppingCartItems() {
-        List<ShoppingItem> items = Backend.getShoppingCartItems();
-
+    private void updateShoppingCart() {
         shoppingItemsVBox.getChildren().clear();
 
-        for (ShoppingItem item : items) {
-            shoppingItemsVBox.getChildren().add(new ShoppingCartItemController(item.getProduct(), (int)item.getAmount()));
+        for (ShoppingItem item : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
+            shoppingItemsVBox.getChildren().add(new ShoppingCartItemController(item));
         }
+
+        totalPriceLabel.setText(String.format("%.2f", IMatDataHandler.getInstance().getShoppingCart().getTotal()));
     }
 
     @FXML
     private void showCheckout() {
         NavigationEventService.push(new NavigationEvent(NavigationRoute.CHECKOUT_CART, null));
+    }
+
+    @FXML private void clearCart() {
+        Backend.emptyCart();
     }
 }

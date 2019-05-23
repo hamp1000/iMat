@@ -1,6 +1,7 @@
 .productShadow {
     -fx-effect: dropshadow(three-pass-box, lightgrey, 1.5, 4, 2, 2);
 
+
 }
 
 .category-button.category-button-active {
@@ -10,12 +11,14 @@
 .buttonfix{
     -fx-border-style:solid;
     -fx-border-color:#909090;
+
 }
 
-.button:focused{
+.category-button.category-button-active {
     -fx-background-color: rgb(0, 150, 51);
     -fx-text-fill: white;
 }
+
 
 .back-button{
     -fx-background-color: rgba(192, 192, 192, 0.37);
@@ -24,6 +27,13 @@
     -fx-background-color: #43ef43;
 }
 .next-button:hover{
+
+.category-button {
+    -fx-background-color: rgb(228, 255, 228);
+}
+
+.category-button:hover {
+
     -fx-background-color: rgb(0, 150, 51);
     -fx-text-fill: white;
 }
