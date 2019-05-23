@@ -96,12 +96,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="702.0" layoutY="95.0" text="Efternamn">
+            <Label layoutX="660.0" layoutY="95.0" text="Efternamn">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="cardCVCField1" layoutX="554.0" layoutY="362.0" prefHeight="40.0" prefWidth="183.0" promptText="Datum">
+            <TextField fx:id="cardMonthExpireField" layoutX="554.0" layoutY="362.0" prefHeight="40.0" prefWidth="183.0" promptText="Månad">
                <font>
                   <Font size="19.0" />
                </font>
@@ -109,7 +109,7 @@
                   <DropShadow color="#65656594" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.5" width="12.0" />
                </effect>
             </TextField>
-            <TextField fx:id="cardCVCField11" layoutX="767.0" layoutY="362.0" prefHeight="40.0" prefWidth="183.0" promptText="År">
+            <TextField fx:id="cardYearExpireField" layoutX="767.0" layoutY="362.0" prefHeight="40.0" prefWidth="183.0" promptText="År">
                <font>
                   <Font size="19.0" />
                </font>
@@ -117,7 +117,7 @@
                   <DropShadow color="#65656594" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.5" width="12.0" />
                </effect>
             </TextField>
-            <Label layoutX="554.0" layoutY="335.0" prefHeight="30.0" prefWidth="143.0" text="Utgångsdatum">
+            <Label layoutX="554.0" layoutY="335.0" prefHeight="30.0" prefWidth="143.0" text="Utgångsmånad">
                <font>
                   <Font size="20.0" />
                </font>
@@ -130,7 +130,7 @@
          </children>
       </AnchorPane>
       <Line endX="1189.0" endY="7.0" layoutX="102.0" layoutY="144.0" startX="-102.0" startY="7.0" />
-      <ImageView fitHeight="100.0" fitWidth="810.0" layoutX="251.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="100.0" fitWidth="810.0" layoutX="251.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="25.0">
          <image>
             <Image url="@resources/2a.png" />
          </image>

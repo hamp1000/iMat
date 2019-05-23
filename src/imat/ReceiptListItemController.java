@@ -36,7 +36,7 @@ public class ReceiptListItemController extends AnchorPane {
         int itemCount = 0;
         int totalCost = 0;
         for(ShoppingItem item: order.getItems()){
-            itemCount++;
+            itemCount += (int)item.getAmount();
             totalCost += item.getTotal();
         }
 

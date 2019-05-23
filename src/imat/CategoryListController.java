@@ -49,7 +49,14 @@ public class CategoryListController extends AnchorPane implements NavigationEven
         switch (event.route) {
             case PRODUCTS_CATEGORY: {
                 this.currentCategory = (Category) event.arg;
-                updateCategoryList();            }
+                updateCategoryList();
+                break;
+            }
+            default: {
+                this.currentCategory = null;
+                updateCategoryList();
+                break;
+            }
         }
     }
 }

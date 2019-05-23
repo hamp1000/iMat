@@ -29,16 +29,10 @@ public class CheckoutCustomerInfoController extends AnchorPane implements Naviga
     TextField cardCVCField;
 
     @FXML
-    TextField phoneNumberField;
+    TextField cardMonthExpireLabel;
 
     @FXML
-    TextField addressField;
-
-    @FXML
-    TextField areaField;
-
-    @FXML
-    TextField zipField;
+    TextField cardYearExpireLabel;
 
     public CheckoutCustomerInfoController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CheckoutCustomerInfo.fxml"));
@@ -60,10 +54,6 @@ public class CheckoutCustomerInfoController extends AnchorPane implements Naviga
         if (IMatDataHandler.getInstance().getCreditCard().getVerificationCode() != -1) {
             cardCVCField.setText(Integer.toString(IMatDataHandler.getInstance().getCreditCard().getVerificationCode()));
         }
-        phoneNumberField.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
-        addressField.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
-        areaField.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
-        zipField.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
 
         firstNameField.textProperty().addListener((observer, oldValue, newValue) -> {
             if (!oldValue.equals(newValue)) {
@@ -93,30 +83,6 @@ public class CheckoutCustomerInfoController extends AnchorPane implements Naviga
                 IMatDataHandler.getInstance().getCreditCard().setVerificationCode(Integer.parseInt(newValue));
             }
         });
-
-        phoneNumberField.textProperty().addListener((observer, oldValue, newValue) -> {
-            if (!oldValue.equals(newValue)) {
-                IMatDataHandler.getInstance().getCustomer().setMobilePhoneNumber(newValue);
-            }
-        });
-
-        addressField.textProperty().addListener((observer, oldValue, newValue) -> {
-            if (!oldValue.equals(newValue)) {
-                IMatDataHandler.getInstance().getCustomer().setAddress(newValue);
-            }
-        });
-
-        areaField.textProperty().addListener((observer, oldValue, newValue) -> {
-            if (!oldValue.equals(newValue)) {
-                IMatDataHandler.getInstance().getCustomer().setPostAddress(newValue);
-            }
-        });
-
-        zipField.textProperty().addListener((observer, oldValue, newValue) -> {
-            if (!oldValue.equals(newValue)) {
-                IMatDataHandler.getInstance().getCustomer().setPostCode(newValue);
-            }
-        });
     }
 
     @Override
@@ -136,6 +102,6 @@ public class CheckoutCustomerInfoController extends AnchorPane implements Naviga
 
     @FXML
     private void navigateNext() {
-        NavigationEventService.push(new NavigationEvent(NavigationRoute.CHECKOUT_ORDER_CONFIRMATION, null));
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.CHECKOUT_SHIPPING_INFO, null));
     }
 }
