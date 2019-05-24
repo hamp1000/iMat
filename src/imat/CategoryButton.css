@@ -1,0 +1,16 @@
+.category-button {
+    -fx-background-color: #e4ffe4;
+}
+
+.category-button:hover {
+    -fx-background-color: #FEFFFE;
+}
+
+.category-button:pressed {
+    -fx-background-color: #CBE6CB;
+}
+
+.category-button-active {
+    -fx-background-color: #CBE6CB;
+}
+

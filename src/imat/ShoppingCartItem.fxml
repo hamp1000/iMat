@@ -24,7 +24,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label fx:id="productName" layoutX="12.0" layoutY="-1.0" prefHeight="34.0" prefWidth="204.0" text="Exempel">
+      <Label fx:id="productName" layoutX="12.0" layoutY="-1.0" prefHeight="34.0" prefWidth="184.0" text="Exempel">
          <font>
             <Font size="19.0" />
          </font>
@@ -94,7 +94,7 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <Label fx:id="productName1" layoutX="133.0" layoutY="34.0" prefHeight="34.0" prefWidth="102.0" text="Jmfr. Pris" textFill="#5e5e5e">
+      <Label fx:id="totalPrice" layoutX="133.0" layoutY="34.0" prefHeight="34.0" prefWidth="94.0" text="Jmfr. Pris" textFill="#5e5e5e">
          <font>
             <Font size="18.0" />
          </font>
