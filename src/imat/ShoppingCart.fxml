@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="400.0" prefWidth="600.0" stylesheets="@ShoppingCart.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane layoutX="33.0" layoutY="63.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -36,7 +36,7 @@
             </ScrollPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
                <children>
-                  <Button fx:id="checkoutButton" alignment="CENTER" graphicTextGap="10.0" layoutX="111.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#showCheckout" style="-fx-background-color: #43ef43;" text="Till kassan" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Button fx:id="checkoutButton" alignment="CENTER" graphicTextGap="10.0" layoutX="111.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#showCheckout" styleClass="checkout-button" text="Till kassan" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -84,7 +84,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="emptyButton" alignment="CENTER" graphicTextGap="5.0" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#clearCart" prefHeight="39.0" prefWidth="580.0" style="-fx-background-color: #ff2d2dbb;" text="Töm varukorg" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                  <Button fx:id="emptyButton" alignment="CENTER" graphicTextGap="5.0" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#clearCart" prefHeight="39.0" prefWidth="580.0" styleClass="empty-cart-button" text="Töm varukorg" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
 
                      <font>
                         <Font name="System Bold" size="18.0" />

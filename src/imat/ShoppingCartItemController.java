@@ -26,7 +26,9 @@ public class ShoppingCartItemController extends AnchorPane {
     Label productName;
 
     @FXML
-    Label productAmount;
+    Label totalPrice;
+
+    @FXML TextField amountField;
 
     public ShoppingCartItemController(ShoppingItem item, boolean flash) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShoppingCartItem.fxml"));
@@ -42,7 +44,7 @@ public class ShoppingCartItemController extends AnchorPane {
         this.item = item;
 
         productName.setText(item.getProduct().getName());
-//        productAmount.setText(Integer.toString((int) Math.round(item.getAmount())));
+        totalPrice.setText(String.format("%.2f", item.getAmount() * item.getProduct().getPrice()));
 
         if (flash) {
 
@@ -70,6 +72,37 @@ public class ShoppingCartItemController extends AnchorPane {
             animation.play();
 
         }
+
+        amountField.textProperty().addListener((observable, oldValue, newValue) -> {
+                    while (true) {
+                        if (newValue.length() > 1 && newValue.charAt(0) == '0') {
+                            newValue = newValue.substring(1);
+                        } else {
+                            break;
+                        }
+                    }
+                    if (!newValue.matches("\\d*")) {
+                        newValue = newValue.replaceAll("[^\\d]", "");
+                    }
+                    if (newValue.length() > 0 && !newValue.equals("0")) {
+                        Backend.setProductAmount(item.getProduct(), Integer.parseInt(newValue));
+                        amountField.setText(newValue);
+                    }
+                }
+        );
+
+        amountField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (oldValue != newValue) {
+                if (!newValue) {
+                    if (amountField.getText().length() == 0) {
+                        amountField.setText("0");
+                        Backend.removeProductFromCart(item.getProduct());
+                    } else {
+                        Backend.setProductAmount(item.getProduct(), Integer.parseInt(amountField.getText()));
+                    }
+                }
+            }
+        });
     }
 
     @FXML

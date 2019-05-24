@@ -1,0 +1,23 @@
+.empty-cart-button {
+    -fx-background-color:  #ff2d2d;
+}
+
+.empty-cart-button:hover {
+    -fx-background-color:  #FF6060;
+}
+
+.empty-cart-button:pressed {
+    -fx-background-color:  #E61414;
+}
+
+.checkout-button {
+    -fx-background-color: #94ce94;
+}
+
+.checkout-button:hover {
+    -fx-background-color: #AEE8AE;
+}
+
+.checkout-button:pressed {
+    -fx-background-color: #7BB57B;
+}
