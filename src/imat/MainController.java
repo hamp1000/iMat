@@ -19,6 +19,9 @@ public class MainController implements Initializable {
     @FXML
     private StackPane mainStackPane;
 
+    @FXML
+    AnchorPane root;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mainGridPane.add(new NavbarController(), 0, 0);
@@ -28,7 +31,10 @@ public class MainController implements Initializable {
         mainStackPane.getChildren().add(new CheckoutShippingInfoController());
         mainStackPane.getChildren().add(new CheckoutOrderConfirmationController());
         mainStackPane.getChildren().add(new CategoryContentBasketController());
+        root.getChildren().add(new EmptyCartController());
 
+        mainGridPane.toFront();
         NavigationEventService.push(new NavigationEvent(NavigationRoute.HELP, null));
+
     }
 }

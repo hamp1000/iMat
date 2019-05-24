@@ -71,6 +71,6 @@ public class ShoppingCartController extends AnchorPane implements ShoppingCartLi
 
     @FXML
     private void clearCart() {
-        Backend.emptyCart();
+        NavigationEventService.push(new NavigationEvent(NavigationRoute.EMPTY_CART, null));
+        }
     }
-}
