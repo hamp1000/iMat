@@ -12,9 +12,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="690" prefWidth="1280" style="-fx-background-color: #FFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="690" prefWidth="1280" style="-fx-background-color: #FFF;" stylesheets="@Button.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="10.0" layoutY="596.0" mnemonicParsing="false" onMouseClicked="#navigateBack" prefHeight="82.0" prefWidth="230.0" styleClass="back-button" stylesheets="@shadows.css" text="Tillbaka" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+      <Button layoutX="10.0" layoutY="596.0" mnemonicParsing="false" onMouseClicked="#navigateBack" prefHeight="82.0" prefWidth="230.0" styleClass="secondary-button" text="Tillbaka" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="41.0" />
          </font>
@@ -22,7 +22,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1020.0" layoutY="595.0" mnemonicParsing="false" onMouseClicked="#navigateNext" prefHeight="82.0" prefWidth="230.0" styleClass="next-button" stylesheets="@shadows.css" text="Slutför ditt köp" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <Button layoutX="1020.0" layoutY="595.0" mnemonicParsing="false" onMouseClicked="#navigateNext" prefHeight="82.0" prefWidth="230.0" styleClass="primary-button" text="Slutför ditt köp" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="28.0" />
          </font>
@@ -58,7 +58,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <TextField fx:id="phoneNumberField" layoutX="158.0" layoutY="95.0" prefHeight="42.0" prefWidth="435.0" promptText="Mobilnummer">
+            <TextField fx:id="phoneNumberField" layoutX="158.0" layoutY="95.0" prefHeight="42.0" prefWidth="435.0" promptText="0XXXXXXXX">
                <font>
                   <Font size="19.0" />
                </font>
@@ -66,7 +66,7 @@
                   <DropShadow color="#6363638f" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.525" width="12.1" />
                </effect>
             </TextField>
-            <TextField fx:id="addressField" layoutX="158.0" layoutY="177.0" prefHeight="42.0" prefWidth="435.0" promptText="Adress">
+            <TextField fx:id="addressField" layoutX="158.0" layoutY="177.0" prefHeight="42.0" prefWidth="435.0" promptText="T.ex. Nygatan 32b">
                <font>
                   <Font size="19.0" />
                </font>
@@ -74,7 +74,7 @@
                   <DropShadow color="#6363638f" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.525" width="12.1" />
                </effect>
             </TextField>
-            <TextField fx:id="areaField" layoutX="158.0" layoutY="254.0" prefHeight="42.0" prefWidth="277.0" promptText="Postort">
+            <TextField fx:id="areaField" layoutX="158.0" layoutY="254.0" prefHeight="42.0" prefWidth="277.0" promptText="T.ex. GÖTEBORG">
                <font>
                   <Font size="19.0" />
                </font>
@@ -82,7 +82,7 @@
                   <DropShadow color="#6363638f" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.525" width="12.1" />
                </effect>
             </TextField>
-            <TextField fx:id="zipField" layoutX="158.0" layoutY="333.0" prefHeight="42.0" prefWidth="193.0" promptText="Postnummer">
+            <TextField fx:id="zipField" layoutX="158.0" layoutY="333.0" prefHeight="42.0" prefWidth="193.0" promptText="T.ex. 12 345">
                <font>
                   <Font size="19.0" />
                </font>
@@ -110,7 +110,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <ComboBox fx:id="shippingDate" layoutX="877.0" layoutY="184.0" prefHeight="41.0" prefWidth="138.0">
+            <ComboBox fx:id="shippingDate" layoutX="877.0" layoutY="184.0" prefHeight="41.0" prefWidth="138.0" promptText="Välj dag">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -118,7 +118,7 @@
                   <DropShadow color="#00000081" height="12.1" offsetX="1.0" offsetY="2.0" radius="5.55" width="12.1" />
                </effect>
             </ComboBox>
-            <ComboBox fx:id="shippingTime" layoutX="1045.0" layoutY="184.0" prefHeight="41.0" prefWidth="138.0">
+            <ComboBox fx:id="shippingTime" layoutX="1045.0" layoutY="184.0" prefHeight="41.0" prefWidth="138.0" promptText="Välj tid">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
