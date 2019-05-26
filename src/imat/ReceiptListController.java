@@ -2,6 +2,7 @@ package imat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Accordion;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -12,7 +13,7 @@ import java.io.IOException;
 
 public class ReceiptListController extends AnchorPane {
     @FXML
-    VBox receiptItemsVBox;
+    Accordion receiptItemsAccordion;
 
     public ReceiptListController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ReceiptList.fxml"));
@@ -27,10 +28,10 @@ public class ReceiptListController extends AnchorPane {
     }
 
     public void updateList() {
-        receiptItemsVBox.getChildren().clear();
+        receiptItemsAccordion.getPanes().clear();
 
         for (Order order : IMatDataHandler.getInstance().getOrders()) {
-            receiptItemsVBox.getChildren().add(new ReceiptListItemController(order));
+            receiptItemsAccordion.getPanes().add(new ReceiptListItemController(order));
         }
     }
 }

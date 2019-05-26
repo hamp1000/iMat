@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -11,9 +12,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="690" prefWidth="1280" style="-fx-background-color: #FFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="690" prefWidth="1280" style="-fx-background-color: #FFF;" stylesheets="@Button.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="7.0" layoutY="596.0" mnemonicParsing="false" onMouseClicked="#navigateBack" prefHeight="82.0" prefWidth="230.0" styleClass="back-button" stylesheets="@shadows.css" text="Tillbaka" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+      <Button layoutX="7.0" layoutY="596.0" mnemonicParsing="false" onMouseClicked="#navigateBack" prefHeight="82.0" prefWidth="230.0" styleClass="secondary-button" text="Tillbaka" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="41.0" />
          </font>
@@ -21,7 +22,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1020.0" layoutY="595.0" mnemonicParsing="false" onMouseClicked="#navigateNext" prefHeight="82.0" prefWidth="230.0" styleClass="next-button" stylesheets="@shadows.css" text="Nästa" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <Button layoutX="1020.0" layoutY="595.0" mnemonicParsing="false" onMouseClicked="#navigateNext" prefHeight="82.0" prefWidth="230.0" styleClass="primary-button" text="Nästa" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="41.0" />
          </font>
@@ -36,7 +37,7 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="firstNameField" layoutX="340.0" layoutY="124.0" prefHeight="40.0" prefWidth="290.0" promptText="Förnamn">
+            <TextField fx:id="firstNameField" layoutX="340.0" layoutY="124.0" prefHeight="40.0" prefWidth="290.0" promptText="T.ex. Erik">
                <font>
                   <Font size="19.0" />
                </font>
@@ -44,7 +45,7 @@
                   <DropShadow color="#6161618f" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.5" width="12.0" />
                </effect>
             </TextField>
-            <TextField fx:id="lastNameField" layoutX="660.0" layoutY="124.0" prefHeight="40.0" prefWidth="290.0" promptText="Efternamn">
+            <TextField fx:id="lastNameField" layoutX="660.0" layoutY="124.0" prefHeight="40.0" prefWidth="290.0" promptText="T.ex. Andersson">
                <font>
                   <Font size="19.0" />
                </font>
@@ -52,7 +53,7 @@
                   <DropShadow color="#65656594" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.5" width="12.0" />
                </effect>
             </TextField>
-            <TextField fx:id="personalNumberField" layoutX="340.0" layoutY="206.0" prefHeight="40.0" prefWidth="610.0" promptText="Personnummer">
+            <TextField fx:id="personalNumberField" layoutX="340.0" layoutY="206.0" prefHeight="40.0" prefWidth="610.0" promptText="ÅÅMMDD-XXXX">
                <font>
                   <Font size="19.0" />
                </font>
@@ -60,7 +61,7 @@
                   <DropShadow color="#65656594" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.5" width="12.0" />
                </effect>
             </TextField>
-            <TextField fx:id="cardNumberField" layoutX="340.0" layoutY="283.0" prefHeight="40.0" prefWidth="610.0" promptText="Kortnummer">
+            <TextField fx:id="cardNumberField" layoutX="340.0" layoutY="283.0" prefHeight="40.0" prefWidth="610.0" promptText="XXXX-XXXX-XXXX-XXXX">
                <font>
                   <Font size="19.0" />
                </font>
@@ -68,7 +69,7 @@
                   <DropShadow color="#65656594" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.5" width="12.0" />
                </effect>
             </TextField>
-            <TextField fx:id="cardCVCField" layoutX="340.0" layoutY="362.0" prefHeight="40.0" prefWidth="183.0" promptText="CCV/CVC">
+            <TextField fx:id="cardCVCField" layoutX="340.0" layoutY="362.0" prefHeight="40.0" prefWidth="183.0" promptText="XXX">
                <font>
                   <Font size="19.0" />
                </font>
@@ -101,22 +102,6 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="cardMonthExpireField" layoutX="554.0" layoutY="362.0" prefHeight="40.0" prefWidth="183.0" promptText="Månad">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <effect>
-                  <DropShadow color="#65656594" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.5" width="12.0" />
-               </effect>
-            </TextField>
-            <TextField fx:id="cardYearExpireField" layoutX="767.0" layoutY="362.0" prefHeight="40.0" prefWidth="183.0" promptText="År">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <effect>
-                  <DropShadow color="#65656594" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.5" width="12.0" />
-               </effect>
-            </TextField>
             <Label layoutX="554.0" layoutY="335.0" prefHeight="30.0" prefWidth="143.0" text="Utgångsmånad">
                <font>
                   <Font size="20.0" />
@@ -127,6 +112,16 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <ComboBox fx:id="cardExpiryMonth" layoutX="554.0" layoutY="362.0" prefHeight="42.0" prefWidth="183.0" promptText="Välj månad">
+               <effect>
+                  <DropShadow color="#5b5b5b8f" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.5" width="12.0" />
+               </effect>
+            </ComboBox>
+            <ComboBox fx:id="cardExpiryYear" layoutX="768.0" layoutY="362.0" prefHeight="42.0" prefWidth="183.0" promptText="Välj år">
+               <effect>
+                  <DropShadow color="#6161618a" height="12.0" offsetX="2.0" offsetY="2.0" radius="5.5" width="12.0" />
+               </effect>
+            </ComboBox>
          </children>
       </AnchorPane>
       <Line endX="1189.0" endY="7.0" layoutX="102.0" layoutY="144.0" startX="-102.0" startY="7.0" />

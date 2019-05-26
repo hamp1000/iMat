@@ -11,14 +11,17 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="690" prefWidth="1280" style="-fx-background-color: #FFF;" stylesheets="@shadows.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="690" prefWidth="1280" style="-fx-background-color: #FFF;" stylesheets="@Button.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="-1.0" layoutY="596.0" mnemonicParsing="false" onMouseClicked="#navigateBack" prefHeight="82.0" prefWidth="230.0" styleClass="back-button" stylesheets="@shadows.css" text="Tillbaka" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+      <Button layoutX="-1.0" layoutY="596.0" mnemonicParsing="false" onMouseClicked="#navigateBack" prefHeight="82.0" prefWidth="230.0" styleClass="secondary-button" text="Tillbaka" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="41.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Button layoutX="1020.0" layoutY="595.0" mnemonicParsing="false" onMouseClicked="#navigateNext" prefHeight="82.0" prefWidth="230.0" styleClass="next-button" stylesheets="@shadows.css" text="Nästa" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <Button fx:id="nextButton" layoutX="1020.0" layoutY="595.0" mnemonicParsing="false" onMouseClicked="#navigateNext" prefHeight="82.0" prefWidth="230.0" styleClass="primary-button" text="Nästa" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="41.0" />
          </font>
@@ -41,14 +44,9 @@
          </children>
       </AnchorPane>
       <Line endX="1189.0" endY="7.0" layoutX="102.0" layoutY="144.0" startX="-101.0" startY="7.0" />
-      <Label layoutX="503.0" layoutY="607.0" prefHeight="62.0" prefWidth="136.0" text="Totala priset:" textFill="#515151">
+      <Label fx:id="totalPriceLabel" alignment="CENTER_RIGHT" layoutX="261.0" layoutY="606.0" prefHeight="62.0" prefWidth="771.0" text="Totala priset:">
          <font>
             <Font name="System Bold" size="21.0" />
-         </font>
-      </Label>
-      <Label fx:id="checkoutTotal" layoutX="643.0" layoutY="605.0" prefHeight="62.0" prefWidth="136.0" text="pris kr" textFill="#323232">
-         <font>
-            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
    </children>

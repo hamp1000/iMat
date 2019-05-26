@@ -1,0 +1,23 @@
+.primary-button {
+    -fx-background-color: #94ce94;
+}
+
+.primary-button:hover {
+    -fx-background-color: #AEE8AE;
+}
+
+.primary-button:pressed {
+    -fx-background-color: #7BB57B;
+}
+
+.secondary-button {
+    -fx-background-color: rgba(192, 192, 192, 0.4);
+}
+
+.secondary-button:hover {
+    -fx-background-color: rgba(192, 192, 192, 0.3);
+}
+
+.secondary-button:focused {
+    -fx-background-color: rgba(192, 192, 192, 0.5);
+}
