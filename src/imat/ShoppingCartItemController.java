@@ -14,7 +14,9 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCartListener;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
@@ -45,6 +47,10 @@ public class ShoppingCartItemController extends AnchorPane {
 
         productName.setText(item.getProduct().getName());
         totalPrice.setText(String.format("%.2f", item.getAmount() * item.getProduct().getPrice()));
+
+        int amount = Backend.getProductCartAmount(item.getProduct());
+
+        amountField.setText(Integer.toString(amount));
 
         if (flash) {
 
@@ -85,7 +91,6 @@ public class ShoppingCartItemController extends AnchorPane {
                         newValue = newValue.replaceAll("[^\\d]", "");
                     }
                     if (newValue.length() > 0 && !newValue.equals("0")) {
-                        Backend.setProductAmount(item.getProduct(), Integer.parseInt(newValue));
                         amountField.setText(newValue);
                     }
                 }
