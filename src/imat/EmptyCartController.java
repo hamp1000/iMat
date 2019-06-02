@@ -36,15 +36,15 @@ public class EmptyCartController extends AnchorPane implements NavigationEventOb
 
     @FXML
     public void accept() {
-
         Backend.emptyCart();
         this.toBack();
-
+        NavigationEventService.pop();
     }
 
     @FXML
     public void reject() {
         this.toBack();
+        NavigationEventService.pop();
     }
 
     @Override

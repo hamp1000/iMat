@@ -6,6 +6,7 @@ import imat.events.NavigationEventService;
 import imat.events.NavigationRoute;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -29,10 +30,10 @@ public class CheckoutCustomerInfoController extends AnchorPane implements Naviga
     TextField cardCVCField;
 
     @FXML
-    TextField cardMonthExpireLabel;
+    ComboBox cardExpiryYear;
 
     @FXML
-    TextField cardYearExpireLabel;
+    ComboBox cardExpiryMonth;
 
     public CheckoutCustomerInfoController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CheckoutCustomerInfo.fxml"));
@@ -54,6 +55,9 @@ public class CheckoutCustomerInfoController extends AnchorPane implements Naviga
         if (IMatDataHandler.getInstance().getCreditCard().getVerificationCode() != -1) {
             cardCVCField.setText(Integer.toString(IMatDataHandler.getInstance().getCreditCard().getVerificationCode()));
         }
+
+        cardExpiryMonth.getItems().addAll("Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December");
+        cardExpiryYear.getItems().addAll("2019", "2020", "2021", "2022", "2023");
 
         firstNameField.textProperty().addListener((observer, oldValue, newValue) -> {
             if (!oldValue.equals(newValue)) {
